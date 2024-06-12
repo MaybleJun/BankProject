@@ -2,12 +2,12 @@
 
 .Footer {
 
-    background-color: $background-color-graylight;
+  background-color: $background-color-graylight;
   
     .footer__container {
       max-width: $max-width-desktop;
       display: flex;
-      margin: auto ;
+      margin: 0 auto ;
       flex-direction: column;
       padding: 96px 0;
       gap: 32px;
@@ -50,6 +50,7 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         column-gap: 32px;
+        row-gap: 8px;
     }
 
     
