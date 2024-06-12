@@ -1,13 +1,10 @@
 import React from 'react';
-import Navbar from '../../widgets/Navbar/Navbar';
-import Footer from '../../widgets/Footer/Footer';
+
 
 const HomePage = () => (
-    <div>
-        <Navbar />
+    <main className='Main'>
             MAIN
-        <Footer />
-    </div>
+    </main>
 );
 
 export default HomePage;

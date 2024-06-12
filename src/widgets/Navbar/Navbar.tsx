@@ -5,15 +5,20 @@ import { Button } from '../../components/Button/Button';
 import { navLinks } from '../../routes/routsNavbar';
 
 const Navbar = () => (
-  <div className="navbar__container">
+  <header className='Header'>
+    <div className="navbar__container">
     <Link className='navbar__link-logotext' to="/">NeoBank</Link>
     <ul className='navbar__links'>
       {navLinks.map((link, index) => (
-        <Link key={index} className='navbar__link' to={link.href}>{link.label}</Link>
+        <li className='navbar__link'>
+          <Link key={index}  to={link.href}>{link.label}</Link>
+        </li>
       ))}
     </ul>
     <Button />
   </div>
+  </header>
+  
 );
 
 export default Navbar;

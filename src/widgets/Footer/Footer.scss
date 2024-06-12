@@ -1,15 +1,20 @@
 @use "../../app/styles/index.scss" as *;
 
 .Footer {
-    padding: 10px 0;
+
     background-color: $background-color-graylight;
   
-    .Footer__container {
-      margin: auto;
+    .footer__container {
+      max-width: $max-width-desktop;
+      display: flex;
+      margin: auto ;
+      flex-direction: column;
+      padding: 96px 0;
+      gap: 32px;
       max-width: $max-width-desktop;
     }
   
-    .Footer__upinfo{
+    .footer__upinfo{
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -38,15 +43,20 @@
 
   
       .footer__links{
-        padding: 10px;
+        display: flex;
+        width: 100%;
         font-weight: 500;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        column-gap: 32px;
     }
 
     
     .footer__link {
         color: inherit;
-        padding: 10px;
-        nowrap        
+
+            
     
         &:is(:focus, :hover, &--active) {
           color: $text-color-active;
@@ -64,7 +74,14 @@
     }
   
     @media screen and (max-width: $max-width-mobile) {
-        &__top {
+      .Footer {
+        max-width:$max-width-mobile;  
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+      }
+      
+      &__upinfo {
           flex-direction: column;
         }
     
@@ -72,7 +89,8 @@
           text-align: center;
         }
     
-        &__navbar {
+        &__links{
+    
           flex-direction: column;
           align-items: center;
         }
