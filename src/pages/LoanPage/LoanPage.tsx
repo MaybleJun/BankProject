@@ -1,9 +1,11 @@
 import React from 'react';
+import Navbar from '../../widgets/Navbar/Navbar';
 
 const LoanPage = () => {
     return (
         <div>
-            Loan
+            <Navbar />
+            hjfgjhgAAAA
         </div>
     );
 };
