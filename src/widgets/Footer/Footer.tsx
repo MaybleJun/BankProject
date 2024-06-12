@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Footer.scss';
 
-const Navbar = () => {
-
-    return (
-        <div className="counter-container2">
-         footer
-        </div>
-    );
-};
+const Navbar = () => (
+    <div className="counter-container2">
+        footer
+    </div>
+);
 
 export default Navbar;

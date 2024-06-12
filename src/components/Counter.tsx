@@ -6,12 +6,12 @@ const Counter = () => {
 
     const increment = () => {
         setCount(count + 1);
-    }
+    };
 
     return (
         <div className="counter-container">
             <h1>{count}</h1>
-            <button className="button" onClick={increment}>increment</button>
+            <button type="button" className="button" onClick={increment}>increment</button>
         </div>
     );
 };
