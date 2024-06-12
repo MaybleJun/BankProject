@@ -5,7 +5,7 @@ import Footer from '../../widgets/Footer/Footer';
 const HomePage = () => (
     <div>
         <Navbar />
-        hgjhgjh
+            MAIN
         <Footer />
     </div>
 );

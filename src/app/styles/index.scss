@@ -1,7 +1,10 @@
 @import "reset";
-@import "variables/global";
+@import "./variables/global";
 
 
 .app {
-    font-size: 30px;
+    font-family: $font-family-main;
+    color: $text-color-black;
+    font-size: $font-size-s;
+    line-height: $line-height-150;
 }

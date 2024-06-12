@@ -1,0 +1,18 @@
+@use "../../app/styles/index.scss" as *;
+
+.Button {
+    padding: 10px 20px;
+    border-radius: 16px;
+    cursor: pointer;
+    color: $text-color-white;
+    background: $button-color-blue;
+
+    &:is(:focus, :hover, &--active) {
+        background: $text-color-active;
+      }
+}
+
+
+
+
+
