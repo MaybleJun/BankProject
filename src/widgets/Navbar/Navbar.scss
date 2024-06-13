@@ -1,29 +1,28 @@
 @use "../../app/styles/index.scss" as *;
 
-.header{
-    background-color: $background-color-white;
+.header {
+  background-color: $background-color-white;
 
-.navbar__container {
+  &__container {
     max-width: $max-width-desktop;
     display: flex;
-    margin: auto ;
-    max-width: $max-width-desktop;
+    margin: auto;
     min-height: 64px;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
-}
+  }
 
-.navbar__links{
+  &__links {
     display: flex;
     gap: 40px;
-}
+  }
 
-.navbar__link-logotext{
+  &__link-logotext {
     color: #B4387A;
-}
+  }
 
-.navbar__link {
+  &__link {
     color: inherit;
     padding: 10px;
     text-decoration: none;

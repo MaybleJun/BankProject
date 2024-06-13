@@ -8,14 +8,14 @@ import Footer from '../widgets/Footer/Footer';
 
 const App = () => (
     <div className="app">
-            <Navbar />
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    <Route path="/" element={<HomePageAsync />} />
-                    <Route path="/loan" element={<LoanPageAsync />} />
-                </Routes>
-            </Suspense>
-            <Footer />
+        <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+                <Route path="/" element={<HomePageAsync />} />
+                <Route path="/loan" element={<LoanPageAsync />} />
+            </Routes>
+        </Suspense>
+        <Footer />
     </div>
 );
 

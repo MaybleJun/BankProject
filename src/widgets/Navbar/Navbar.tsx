@@ -5,20 +5,19 @@ import { Button } from '../../components/Button/Button';
 import { navLinks } from '../../routes/routsNavbar';
 
 const Navbar = () => (
-  <header className='header'>
-    <div className="navbar__container">
-    <Link className='navbar__link-logotext' to="/">NeoBank</Link>
-    <ul className='navbar__links'>
-      {navLinks.map((link, index) => (
-        <li className='navbar__link'>
-          <Link key={index}  to={link.href}>{link.label}</Link>
-        </li>
-      ))}
-    </ul>
-    <Button className='Button'>Online Bank</Button>
-  </div>
-  </header>
-  
+    <header className="header">
+        <div className="header__container">
+            <Link className="header__link-logotext" to="/">NeoBank</Link>
+            <ul className="header__links">
+                {navLinks.map((link, index) => (
+                    <li key={index} className="header__link">
+                        <Link to={link.href}>{link.label}</Link>
+                    </li>
+                ))}
+            </ul>
+            <Button className="Button">Online Bank</Button>
+        </div>
+    </header>
 );
 
 export default Navbar;
