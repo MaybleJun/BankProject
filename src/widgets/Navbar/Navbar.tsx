@@ -5,7 +5,7 @@ import { Button } from '../../components/Button/Button';
 import { navLinks } from '../../routes/routsNavbar';
 
 const Navbar = () => (
-  <header className='Header'>
+  <header className='header'>
     <div className="navbar__container">
     <Link className='navbar__link-logotext' to="/">NeoBank</Link>
     <ul className='navbar__links'>
@@ -15,7 +15,7 @@ const Navbar = () => (
         </li>
       ))}
     </ul>
-    <Button />
+    <Button className='Button'>Online Bank</Button>
   </div>
   </header>
   

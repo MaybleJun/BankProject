@@ -9,10 +9,9 @@ export const Button: FC<ButtonProps> = ({ className = 'Button', children, ...oth
     return (
         <button
             type="button"
-            className={`button ${className}`}
+            className={`Button ${className}`}
             {...otherProps}
         >
-            Online Bank
             {children}
         </button>
     );

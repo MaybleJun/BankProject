@@ -1,21 +1,21 @@
 import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
-// import neoLogo from "../../assets/logoNeo.png";
+import neoLogo from "../../assets/logoNeo.png";
 import { footerLinks } from '../../routes/routsFooter';
 
 const Navbar = () => (
-    <footer className="Footer">
+    <footer className="footer">
       <div className="footer__container">
         <div className="footer__upinfo">
           <a href="https://www.neoflex.ru" target="_blank" rel="">
             <figure className="footer__logoNeo">
-              {/* <img
+              <img
                 src={neoLogo}
                 alt="Neoflex logo"
                 width="159"
                 height="50"
-              /> */}
+              />
             </figure>
           </a>
           <div className="footer__contacts">
@@ -30,7 +30,7 @@ const Navbar = () => (
 
         <ul className='footer__links'>
       {footerLinks.map((link, index) => (
-        <Link key={index} className='navbar__link' to={link.href}>{link.label}</Link>
+        <Link key={index} className='footer__link' to={link.href}>{link.label}</Link>
       ))}
     </ul>
         <div className="footer__linear"></div>
