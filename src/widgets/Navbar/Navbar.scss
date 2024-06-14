@@ -27,7 +27,7 @@
     padding: 10px;
     text-decoration: none;
 
-    &:is(:focus, :hover, &--active) {
+    &:is(:focus, :hover) {
       color: $text-color-active;
     }
   }

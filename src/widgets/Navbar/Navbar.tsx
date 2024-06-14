@@ -9,8 +9,8 @@ const Navbar = () => (
         <div className="header__container">
             <Link className="header__link-logotext" to="/">NeoBank</Link>
             <ul className="header__links">
-                {navLinks.map((link, index) => (
-                    <li key={index} className="header__link">
+                {navLinks.map((link) => (
+                    <li key={link.href} className="header__link">
                         <Link to={link.href}>{link.label}</Link>
                     </li>
                 ))}

@@ -121,7 +121,7 @@
 
 
     .offerings {
-      gap: 25px;
+      gap: 15px;
 
       &__title {
         margin-bottom: 5px;
@@ -168,6 +168,7 @@
     
       &__inputWrapper {
         display: flex;
+        align-items: center;
         
       }
     

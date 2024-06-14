@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../../components/Button/Button';
+import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
 import cardImg1 from '../../assets/cardImg1.png';
 import cardImg2 from '../../assets/cardImg2.png';
 import cardImg3 from '../../assets/cardImg3.png';
@@ -55,6 +56,8 @@ const HomePage = () => (
             </div>
         </section>
 
+        <CurrencyExchange />
+
         <section className="section section--flex-column section--align-center offerings">
             <h2 className="offerings__title">
                 You can use our services anywhere in the world
@@ -73,13 +76,13 @@ const HomePage = () => (
                 <div className="assistance__formWrapper">
                     <div className="assistance__inputWrapper">
                         <label htmlFor="email" className="assistance__emailLabel">
-                            <img
+                            {/* <img
                                 className="assistance__emailIcon"
                                 src={iconEmail}
                                 alt="Email icon"
                                 width="27"
                                 height="25"
-                            />
+                            /> */}
                             <input
                                 className="assistance__emailInput"
                                 type="email"
@@ -91,13 +94,13 @@ const HomePage = () => (
                         </label>
                     </div>
                     <Button className="Button assistance__submitButton">
-                        <img
+                        {/* <img
                             className="assistance__sendImage"
                             src={iconTelegram}
                             alt="Send icon"
                             width="20"
                             height="16"
-                        />
+                        /> */}
                         Subscribe
                     </Button>
                 </div>

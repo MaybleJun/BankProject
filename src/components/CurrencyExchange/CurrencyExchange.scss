@@ -1,0 +1,97 @@
+@use "../../app/styles/index.scss" as *;
+
+.currencyExchange {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px;
+  border-radius: 32px;
+  box-shadow: 0 2px 4px rgba(187, 187, 187, 0.2), 0 0 4px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(244, 244, 244, 0.8) 30%,
+    rgba(178, 178, 178, 0.8) 100%
+  );
+
+  &__wrapperLeft {
+    gap:15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-self: flex-start;
+  }
+
+  &__title {
+    font-weight: $font-size-l;
+    line-height: 50px;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: $font-size-m;
+    line-height: 50px;
+  }
+
+  &__list {
+    display: grid;
+    font-weight: 700;
+  align-items: center;
+  gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: fit-content;
+  padding: 0;
+
+  list-style: none;
+  }
+
+  &__itemForm {
+    padding-right: 20px;
+    color: $text-color-gray-light
+  }
+
+  &__link {
+    
+    color: $background-color-white;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 16px;
+
+    &:hover {
+      color: $text-color-active;
+    }
+  }
+
+
+
+  &__wrapperRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+  }
+
+  &__updateInfo{
+    margin-top: 15px;
+    font-weight: 500;
+  }
+
+  &__img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 55px;
+  }
+
+  @media (max-width: $max-width-tablet) {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+
+  @media (max-width: $max-width-tablet) {
+    &__content {
+      justify-content: center;
+    }
+  }
+}

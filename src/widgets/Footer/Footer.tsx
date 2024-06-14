@@ -29,8 +29,8 @@ const Navbar = () => (
             </div>
 
             <ul className="footer__links">
-                {footerLinks.map((link, index) => (
-                    <li key={index}>
+                {footerLinks.map((link) => (
+                    <li key={link.href}>
                         <Link className="footer__link" to={link.href}>{link.label}</Link>
                     </li>
                 ))}
