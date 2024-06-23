@@ -45,9 +45,21 @@
     object-fit: cover;
   }
 
+  &__desc {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    align-self: flex-end;
+    margin: 0;
+    line-height: 23px;
+    font-weight: 500;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
+
   &__title {
-    display: flex;
-  flex-direction: column;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
   line-clamp: 4;
   overflow: hidden;
@@ -55,13 +67,5 @@
   line-height: 25px;
   font-size: $font-size-m;
   font-weight: 500;
-  }
-
-  &__desc {
-    align-self: flex-end;
-    margin: 0;
-    line-height: 23px;
-    overflow: hidden;
-    font-weight: 500;
   }
 }
