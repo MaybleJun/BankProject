@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import neoLogo from '../../assets/logoNeo.png';
 import { footerLinks } from '../../routes/routsFooter';
 
-const Navbar = () => (
+const Footer = () => (
     <footer className="footer">
         <div className="footer__container">
             <div className="footer__upinfo">
@@ -47,4 +47,4 @@ const Navbar = () => (
     </footer>
 );
 
-export default Navbar;
+export default Footer;

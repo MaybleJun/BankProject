@@ -1,0 +1,30 @@
+@use "../../app/styles/index.scss" as *;
+
+.CurrentNewsSlider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__wrapperBtn {
+    display: flex;
+    align-self: flex-end;
+    margin-top: 16px;
+    margin-left: auto;
+    gap: 20px;
+  }
+
+  &__btn {
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    border: 1px solid $button-color-blue;
+    border-radius: 50%;
+    color: $background-color-white;
+    background-color: $button-color-blue;
+
+    &--disabled {
+      background-color: $background-color-white;
+      
+    }
+  }
+}
