@@ -1,64 +1,58 @@
-// import imgBank from '../../assets/imgBank.png';
-// import './CurrencyExchange.scss';
+import React from 'react';
+import './CurrencyExchange.scss';
+import { ExchangeRateParams } from './api/api';
+import ExchangeRatesList from './components/CurrencyExchangeList';
+import { getFormattedLocationDate } from './helpers/getFormattedLocationDate';
 
-// type TCurrencyConverterListProps = {
-//     params?: TGetExchangeRateParams[];
-//     updateIntervalMinutes?: number;
-//   };
+import imgBank from '../../assets/imgBank.png';
 
-// export default function CurrencyConverter({
-//     params,
-//     updateIntervalMinutes = 15,
-//   }: TCurrencyConverterListProps) {
-//     const currentDate = getCurrentDate();
+type TCurrencyExchangeProps = {
+  params?: ExchangeRateParams[];
+  updateIntervalMinutes?: number;
+};
 
-// return (
-//     <section className="currencyExchange">
-//         <div className="currencyExchange__wrapperLeft">
-//             <h2 className="currencyExchange__title">Exchange rate in internet bank</h2>
+const CurrencyExchange: React.FC<TCurrencyExchangeProps> = ({
+    params,
+    updateIntervalMinutes = 15,
+}: TCurrencyExchangeProps) => {
+    const currentCityDate = getFormattedLocationDate();
 
-//             <h3 className="currencyExchange__subtitle">
-//                 Currency
-//             </h3>
-//             <ul className="currencyExchange__list">
-//                 <li>
-//                     <span className="currencyExchange__itemForm">USD:</span>
-//                     3.39
-//                 </li>
-//                 <li>
-//                     <span className="currencyExchange__itemForm">EUR:</span>
-//                     3.39
-//                 </li>
-//                 <li>
-//                     <span className="currencyExchange__itemForm">GBP:</span>
-//                     3.39
-//                 </li>
-//                 <li>
-//                     <span className="currencyExchange__itemForm">GBP:</span>
-//                     3.39
-//                 </li>
-//                 <li>
-//                     <span className="currencyExchange__itemForm">GBP:</span>
-//                     3.39
-//                 </li>
-//                 <li>
-//                     <span className="currencyExchange__itemForm">GBP:</span>
-//                     3.39
-//                 </li>
-//             </ul>
-//             <a href="/" className="currencyExchange__link">All courses</a>
-//         </div>
+    return (
+        <div className="CurrencyExchange">
+            <section className="CurrencyExchange__content-left">
+                <h2 className="CurrencyExchange__title">Exchange rate in internet bank</h2>
+                <h3 className="CurrencyExchange__desc">Currency</h3>
+                <div className="CurrencyExchange__ratesListContainer">
+                    <ExchangeRatesList
+                        params={params}
+                        updateIntervalMinutes={updateIntervalMinutes}
+                    />
+                </div>
+                <button
+                    type="button"
+                    className="CurrencyExchange__btn"
+                    onClick={() => {
+                    }}
+                >
+                    All courses
+                </button>
+            </section>
 
-//         <div className="currencyExchange__wrapperRight">
-//             <p className="currencyExchange__updateInfo">
-//                 Update every {updateIntervalMinutes} minutes, {currentDate}
-//             </p>
-//             <img
-//                 className="currencyExchange__img"
-//                 src={imgBank}
-//                 alt="Bank"
-//             />
-//         </div>
-//     </section>
-// );
-//   }
+            <section className="CurrencyExchange__content-right">
+                <p>
+                    Last updated: every
+                    {' '}
+                    {updateIntervalMinutes}
+                    {' '}
+                    minutes
+                    {currentCityDate}
+                </p>
+                <div className="CurrencyExchange__imgWrapper">
+                    <img className="CurrencyExchange__image" src={imgBank} alt="Bank building" />
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default CurrencyExchange;

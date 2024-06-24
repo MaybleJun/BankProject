@@ -1,96 +1,85 @@
 @use "../../app/styles/index.scss" as *;
 
-.currencyExchange {
+.CurrencyExchange {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   padding: 32px;
   border-radius: 32px;
-  box-shadow: 0 2px 4px rgba(187, 187, 187, 0.2), 0 0 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 5px rgba(187, 187, 187, 0.2), 0 0 5px rgba(0, 0, 0, 0.1);
   background: linear-gradient(
     180deg,
-    rgba(244, 244, 244, 0.8) 30%,
-    rgba(178, 178, 178, 0.8) 100%
+    rgba(244, 244, 244, 0.85) 30%,
+    rgba(178, 178, 178, 0.85) 100%
   );
 
-  &__wrapperLeft {
-    gap:15px;
+  color: $text-color-black;
+  font-size: $font-size-m;
+  font-weight: 500;
+
+  &__content-left {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
-    align-self: flex-start;
+    flex-direction: column;
+    gap: 32px;
   }
 
   &__title {
-    font-weight: $font-size-l;
+    font-size: $font-size-l;
+    color: $text-color-gray-dark;
     line-height: 50px;
   }
 
-  &__subtitle {
-    font-weight: 500;
+  &__desc{
     font-size: $font-size-m;
     line-height: 50px;
   }
 
   &__list {
-    display: grid;
-    font-weight: 700;
-  align-items: center;
-  gap: 32px;
-  grid-template-columns: 1fr 1fr 1fr;
-  max-width: fit-content;
-  padding: 0;
-
-  list-style: none;
+    display: flex;
+    flex-direction: column;
   }
 
-  &__itemForm {
-    padding-right: 20px;
-    color: $text-color-gray-light
+  &__ratesListContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
-  &__link {
-    
-    color: $background-color-white;
-    font-weight: 700;
-    cursor: pointer;
-    margin-top: 16px;
+  &__btn {
+    width: fit-content;
+    border: 0;
+    padding: 0;
+    background-color: inherit;
+    margin-top: 15px;
+    color: $text-color-white;
+
+    font-family: inherit;
+    font-size: $font-size-m;
+    line-height: 112%;
 
     &:hover {
-      color: $text-color-active;
+      background-color: inherit;
     }
   }
 
-
-
-  &__wrapperRight{
+  &__content-right {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-end;
+    font-size: $font-size-s;
 
+    
+  
+  }
+  &__imgWrapper{
+   margin-bottom: 60px;
   }
 
-  &__updateInfo{
-    margin-top: 15px;
-    font-weight: 500;
-  }
-
-  &__img {
-    width: 100px;
-    height: auto;
-    margin-bottom: 55px;
-  }
-
+ 
   @media (max-width: $max-width-tablet) {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-
-  @media (max-width: $max-width-tablet) {
-    &__content {
+    &__listContainer {
       justify-content: center;
     }
   }

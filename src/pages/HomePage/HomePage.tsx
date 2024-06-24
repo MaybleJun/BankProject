@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../../components/Button/Button';
-// import CurrencyExchange from '../../components/CurrencyExchange/CurrencyExchange';
-import CurrentNewsSlider from '../../features/CurrentNewsSlider/CurrentNewsSlider'
+import CurrencyExchange from '../../features/CurrencyExchange/CurrencyExchange';
+import CurrentNewsSlider from '../../features/CurrentNewsSlider/CurrentNewsSlider';
 import cardImg1 from '../../assets/cardImg1.png';
 import cardImg2 from '../../assets/cardImg2.png';
 import cardImg3 from '../../assets/cardImg3.png';
@@ -57,7 +57,7 @@ const HomePage = () => (
             </div>
         </section>
 
-        {/* <CurrencyExchange /> */}
+        <CurrencyExchange />
 
         <section className="section section--flex-column section--align-center offerings">
             <h2 className="offerings__title">
@@ -74,13 +74,11 @@ const HomePage = () => (
                 Current news from the world of finance
             </h2>
             <p className="current-news__caption">
-                 We update the news feed every 15 minutes. You can learn more by
+                We update the news feed every 15 minutes. You can learn more by
                 clicking on the news you are interested in.
             </p>
             <CurrentNewsSlider />
         </section>
-
-
 
         <section className="section section--flex-column section--align-center assistance">
             <h2 className="assistance__title">Support</h2>
