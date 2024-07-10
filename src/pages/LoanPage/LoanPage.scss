@@ -1,0 +1,99 @@
+@use "../../app/styles/index.scss" as *;
+
+.wrapperCard {
+    padding: 24px 32px;
+    border-radius: 28px;
+}
+
+.loanPage {
+    display: flex;
+  flex-direction: column;
+  gap: 48px; 
+  max-width: $max-width-desktop;
+  width: 100%;
+  margin:0 auto;
+  padding: 20px 0 96px;
+  
+  .mainCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 48px 32px;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2),
+      0 0 8px 0 hsla(0, 0%, 0%, 0.08);
+    background: linear-gradient(
+      180deg,
+      hsla(211, 25%, 84%, 0.8) 30%,
+      hsla(39, 96%, 89%, 0.8) 100%
+    );
+
+    color: #2D3748;
+
+    &__descWrapper {
+      gap:32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 48px;
+      font-weight: 700;
+      color: $text-color-white;
+    }
+
+    &__text {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &__list {
+      display: flex;
+      gap: 80px;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__itemTitle {
+      margin-top: 8px; 
+      margin-bottom: 8px; 
+      font-size: $font-size-m;
+      font-weight: 700;
+    }
+
+    &__itemText {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    &__img {
+      transform: rotate(10deg);
+      margin-right: 70px;
+      border-radius: 20px;
+    }
+
+    &__button {
+       border-radius: 10px;
+       max-width: 160px;
+       min-height: 50px;
+    }
+
+    @media screen and (max-width: $max-width-tablet) {
+      flex-direction: column;
+      gap: 32px;
+
+      &__descContainer {
+        align-items: center;
+      }
+
+      &__list {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    }
+  }
+
+}

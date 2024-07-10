@@ -8,8 +8,8 @@ import cardImg3 from '../../assets/cardImg3.png';
 import cardImg4 from '../../assets/cardImg4.png';
 import imgManLaptop from '../../assets/imgManLaptop.png';
 import imgMap from '../../assets/imgMap.png';
-import iconEmail from '../../assets/iconEmail.svg';
-import iconTelegram from '../../assets/iconTelegram.svg';
+import  IconEmail from '../../assets/iconEmail.svg';
+import IconTelegram from '../../assets/iconTelegram.svg';
 import './HomePage.scss';
 
 const HomePage = () => (
@@ -88,13 +88,7 @@ const HomePage = () => (
                 <div className="assistance__formWrapper">
                     <div className="assistance__inputWrapper">
                         <label htmlFor="email" className="assistance__emailLabel">
-                            {/* <img
-                                className="assistance__emailIcon"
-                                src={iconEmail}
-                                alt="Email icon"
-                                width="27"
-                                height="25"
-                            /> */}
+                        <IconEmail className="assistance__emailIcon" width="27" height="25" />
                             <input
                                 className="assistance__emailInput"
                                 type="email"
@@ -106,13 +100,11 @@ const HomePage = () => (
                         </label>
                     </div>
                     <Button className="Button assistance__submitButton">
-                        {/* <img
+                        <IconTelegram
                             className="assistance__sendImage"
-                            src={iconTelegram}
-                            alt="Send icon"
                             width="20"
                             height="16"
-                        /> */}
+                        />
                         Subscribe
                     </Button>
                 </div>

@@ -54,7 +54,7 @@ const ExchangeRatesList: React.FC<ExchangeRatesListProps> = ({
             ) : (
                 rates.map(({ from, rate, key }) => (
                     <li key={key}>
-                        <span className="CurrencyExchangeList__currency">
+                        <span className="CurrencyExchangeList __currency">
                             {from}
                             :
                         </span>

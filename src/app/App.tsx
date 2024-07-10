@@ -12,7 +12,7 @@ const App = () => (
         <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 <Route path="/" element={<HomePageAsync />} />
-                <Route path="/loan" element={<LoanPageAsync />} />
+                <Route path="/credit-Card" element={<LoanPageAsync />} />
             </Routes>
         </Suspense>
         <Footer />
