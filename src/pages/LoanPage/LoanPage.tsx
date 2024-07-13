@@ -31,6 +31,28 @@ const LoanPage = () => {
     </article>
   ));
 
+  const ratesAndConditions = (
+    <table>
+      <tbody>
+       {ratesConditions.map((item) => (
+          <tr className="ratesAndConditions__row" key={item.title}>
+            <td className="ratesAndConditions__title">{item.title}</td>
+            <td className="ratesAndConditions__text">{item.text}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+
+  const cashback = cashbackOffers.map((cashback) => (
+    <div className="cashback__card contentCard" key={cashback.title}>
+      <p className="cashback__title">{cashback.title}</p>
+      <p className="cashback__text">{cashback.text}</p>
+    </div>
+  ));
+
+
+
 
   return (
     <main className="loanPage">
@@ -66,10 +88,12 @@ const LoanPage = () => {
       </figure>
   </div>
 
-
-
+  
         <Tabs  links={navTabs}>
         <TabContent  className="aboutCard">{aboutCard}</TabContent>
+          <TabContent className="ratesConditions">{ratesAndConditions}</TabContent>
+        <TabContent className="cashback">{cashback}</TabContent>
+       
       </Tabs> 
     </main>
   );
