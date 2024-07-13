@@ -1,0 +1,49 @@
+@use "../../app/styles/index.scss" as *;
+
+.tabs {
+    &__nav {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    
+    &__link {
+      white-space: nowrap;
+     
+    }
+
+    &__links {
+      display: flex;
+      margin-bottom: 40px;
+      list-style: none;
+      border-bottom: 2px solid rgba(#808080,0.2);
+      gap: 32px;
+    }
+  
+    &__button {
+      border-bottom: 2px solid rgba($text-color-yellow, 0.2);
+      border-radius: 0;
+      border: none;
+      padding: 0 6px 12px;
+  
+      background-color: inherit;
+      color: $text-color-yellow;
+      font-size: $font-size-s;
+      font-weight: 500;
+  
+      &--active {
+        border-bottom: 2px solid #7b7454;
+        
+      }
+  
+      &:hover,
+      &:focus {
+        background-color: inherit;
+      }
+    }
+  }

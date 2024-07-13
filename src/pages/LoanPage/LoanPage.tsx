@@ -1,14 +1,42 @@
+
 import { Button } from "../../components/Button/Button";
+import { TabContent, Tabs  } from "../../components/Tabs/Tabs";
 import cardImg1 from '../../assets/cardImg1.png';
 
 import "./LoanPage.scss";
 
+import {
+  aboutCards,
+  accordionFirst,
+  accordionSecond,
+  cashbackOffers,
+  mainCardList,
+  navTabs,
+  ratesConditions,
+} from "./data-list";
+
 const LoanPage = () => {
+  
+  const aboutCard = aboutCards.map((card) => (
+    <article className="aboutCard__card contentCard" key={card.title}>
+      <img 
+        className="aboutCard__img"
+        src={card.img}
+        alt=""
+        width={40}
+        height={40}
+      />
+      <h2 className="aboutCard__title">{card.title}</h2>
+      <p className="aboutCard__text">{card.text}</p>
+    </article>
+  ));
+
+
   return (
     <main className="loanPage">
-     <section className="wrapperCard mainCard">
-    <div className="mainCard__descWrapper">
-      <h1 className="mainCard__title">
+      <div className="wrapperCard mainCard">
+       <div className="mainCard__descWrapper">
+       <h1 className="mainCard__title">
         Platinum digital credit card
       </h1>
       <div>
@@ -16,31 +44,33 @@ const LoanPage = () => {
         <p className="mainCard__text">Cash withdrawals and transfers without commission and interest.</p>
       </div>
       <ul className="mainCard__list">
-        {[
-          { heading: 'Up to 160 days', desc: 'No percent' },
-          { heading: 'Up to 600 000 ₽', desc: 'Credit limit' },
-          { heading: '0 ₽', desc: 'Card service is free' }
-        ].map((item, index) => (
-          <li className="mainCard__item" key={index}>
-            <p className="mainCard__itemTitle">{item.heading}</p>
-            <p className="mainCard__itemText">{item.desc}</p>
-          </li>
-        ))}
-      </ul>
+      {mainCardList.map((item, index) => (
+    <li className="mainCard__item" key={index}>
+      <p className="mainCard__itemTitle">{item.title}</p>
+      <p className="mainCard__itemText">{item.text}</p>
+    </li>
+      ))}
+    </ul>
       <Button className="Button mainCard__button">
         Apply for card
       </Button>
-    </div>
-    <figure>
-      <img
+      </div>
+      <figure>
+       <img
         className="mainCard__img"
         src={cardImg1}
         alt="Platinum digital credit card"
         width={380}
         height={225}
-      />
-    </figure>
-  </section>
+       />
+      </figure>
+  </div>
+
+
+
+        <Tabs  links={navTabs}>
+        <TabContent  className="aboutCard">{aboutCard}</TabContent>
+      </Tabs> 
     </main>
   );
 };

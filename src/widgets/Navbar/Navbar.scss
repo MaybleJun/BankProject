@@ -28,7 +28,12 @@
     text-decoration: none;
 
     &:is(:focus, :hover) {
-      color: $text-color-active;
+      color: $text-color-nav-active;
+    }
+
+
+    &--active {
+      color: $text-color-nav-active; 
     }
   }
 }

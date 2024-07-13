@@ -53,7 +53,7 @@
     color: inherit;
 
     &:is(:focus, :hover, &--active) {
-      color: $text-color-active;
+      color: $text-color-nav-active;
     }
   }
 
