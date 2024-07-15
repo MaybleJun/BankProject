@@ -1,0 +1,18 @@
+@use "../../app/styles/index.scss" as *;
+
+.Loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__spinner {
+    transform-origin: center;
+    animation: spin linear infinite;
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

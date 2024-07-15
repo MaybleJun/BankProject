@@ -55,7 +55,7 @@ const LoanPage = () => {
 
   const howToGetSteps = howToSteps.map((step, idx) => (
     <li key={idx}>
-      <div className="howToSteps__contentIdx">
+      <div className="howToSteps__Idx">
         <p className="howToSteps__idx">{idx + 1}</p>
       </div>
       <p className="howToSteps__text">{step}</p>
