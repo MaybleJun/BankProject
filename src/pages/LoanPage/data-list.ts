@@ -156,3 +156,9 @@ export const accordionSecond = [
     response: "For each reporting period from the 7th day of the previous month to the 6th day of the current month inclusive, a statement is generated for the credit card. The statement contains information on the amount and timing of the minimum payment, as well as the total amount of debt as of the date of issue.",
   },
 ];
+
+export const howToSteps = [
+  "Fill out an online application - you do not need to visit the bank",
+  "Find out the bank's decision immediately after filling out the application",
+  "The bank will deliver the card free of charge, wherever convenient, to your city"
+];

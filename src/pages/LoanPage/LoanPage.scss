@@ -197,5 +197,56 @@
     }
   }
 
+  .howToSteps{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__title {
+      margin: 30px 0 16px;
+      font-size: $font-size-l;
+      font-weight: 700;
+    }
+
+    &__list {
+      display: flex;
+      gap: 40px;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__contentIdx {
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: "";
+        align-items: center;
+        flex: 1;
+        margin-left: 32px;
+        height: 1px;
+        background-color: rgba(#808080, 0.2);
+      }
+    }
+
+    &__text {
+      margin: 20px;
+    }
+
+    &__idx {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      margin: 0;
+      border-radius: 100%;
+
+      background-color: #D9D9D9;
+      font-size: $font-size-m;
+      font-weight:700;
+    }
+  }
+
 }
 

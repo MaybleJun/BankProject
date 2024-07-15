@@ -25,7 +25,7 @@ export function Accordion({ contentList, title }: AccordionProperties) {
   };
 
   return (
-    <article className="accordion">
+    <div className="accordion">
       {title && <h2 className="accordion__title">{title}</h2>}
       {contentList.map(({ query, response }, index) => (
         <AccordionEntry
@@ -36,6 +36,6 @@ export function Accordion({ contentList, title }: AccordionProperties) {
           trigger={() => modifyActive(index)}
         />
       ))}
-    </article>
+    </div>
   );
 }

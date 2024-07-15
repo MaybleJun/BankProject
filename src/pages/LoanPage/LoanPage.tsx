@@ -14,6 +14,7 @@ import {
   mainCardList,
   navTabs,
   ratesConditions,
+  howToSteps,
 } from "./data-list";
 
 const LoanPage = () => {
@@ -52,6 +53,14 @@ const LoanPage = () => {
     </div>
   ));
 
+  const howToGetSteps = howToSteps.map((step, idx) => (
+    <li key={idx}>
+      <div className="howToSteps__contentIdx">
+        <p className="howToSteps__idx">{idx + 1}</p>
+      </div>
+      <p className="howToSteps__text">{step}</p>
+    </li>
+  ));
 
 
 
@@ -105,6 +114,12 @@ const LoanPage = () => {
           />
         </TabContent> 
       </Tabs> 
+
+      <div className="howToSteps">
+        <h2 className="howToSteps__title">How to get a card</h2>
+        <ul className="howToSteps__list">{howToGetSteps}</ul>
+      </div>
+
     </main>
   );
 };
