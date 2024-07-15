@@ -1,5 +1,6 @@
 
 import { Button } from "../../components/Button/Button";
+import { Accordion } from "../../components/Accordion/Accordion";
 import { TabContent, Tabs  } from "../../components/Tabs/Tabs";
 import cardImg1 from '../../assets/cardImg1.png';
 
@@ -93,7 +94,16 @@ const LoanPage = () => {
         <TabContent  className="aboutCard">{aboutCard}</TabContent>
           <TabContent className="ratesConditions">{ratesAndConditions}</TabContent>
         <TabContent className="cashback">{cashback}</TabContent>
-       
+        <TabContent className="faq">
+          <Accordion
+            contentList={accordionFirst}
+            title="Issuing and receiving a card"
+          />
+          <Accordion
+            contentList={accordionSecond}
+            title="Using a credit card"
+          />
+        </TabContent> 
       </Tabs> 
     </main>
   );

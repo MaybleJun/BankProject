@@ -1,0 +1,43 @@
+@use "../../app/styles/index.scss" as *;
+
+.accordion {
+  line-height: 1.5;
+
+  &__list {
+    border: 1px solid #E2E8F0;
+    
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 32px;
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(#7F92AC, 0.2);
+    }
+  }
+
+  &__title{
+    margin: 32px 0;
+    font-size: $font-size-l;
+  }
+
+  &__query {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  &__response {
+    margin: auto;
+    padding: 32px;
+    color: $text-color-yellow;
+    font-weight: 500;
+  }
+}
