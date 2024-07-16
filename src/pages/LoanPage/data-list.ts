@@ -1,10 +1,10 @@
-import shoppingBagIcon from "../../assets/Bag_duotone.png";
-import calendarEventIcon from "../../assets/Calendar_duotone.png";
-import timeClockIcon from "../../assets/Clock_duotone.png";
-import creditCardIcon from "../../assets/Credit card_duotone.png";
-import moneyBagIcon from "../../assets/Money_duotone.png";
+import SHOPPING_BAG_ICON from "../../assets/Bag_duotone.png";
+import CALENDAR_EVENT_ICON from "../../assets/Calendar_duotone.png";
+import TIME_CLOCK_ICON from "../../assets/Clock_duotone.png";
+import CREDIT_CARD_ICON from "../../assets/Credit card_duotone.png";
+import MONEY_BAG_ICON from "../../assets/Money_duotone.png";
 
-export const mainCardList = [
+export const MAIN_CARD_LIST = [
   {
     title: "Up to 160 days",
     text: "No percent",
@@ -22,42 +22,42 @@ export const mainCardList = [
   },
 ];
 
-export const navTabs = [
+export const NAV_TABS = [
   "About card",
   "Rates and conditions",
   "Cashback",
   "FAQ",
 ];
 
-export const aboutCards = [
+export const ABOUT_CARDS = [
   {
-    img: moneyBagIcon,
+    img: MONEY_BAG_ICON,
     title: "Up to 50 000 ₽",
     text: "Cash and transfers without commission and percent",
   },
   {
-    img: calendarEventIcon,
+    img: CALENDAR_EVENT_ICON,
     title: "Up to 160 days",
     text: "Without percent on the loan",
   },
   {
-    img: timeClockIcon,
+    img: TIME_CLOCK_ICON,
     title: "Free delivery",
     text: "We will deliver your card by courier at a convenient place and time for you",
   },
   {
-    img: shoppingBagIcon,
+    img: SHOPPING_BAG_ICON,
     title: "Up to 12 months",
     text: "No percent. For equipment, clothes and other purchases in installments",
   },
   {
-    img: creditCardIcon,
+    img: CREDIT_CARD_ICON,
     title: "Convenient deposit and withdrawal",
     text: "At any ATM. Top up your credit card for free with cash or transfer from other cards",
   },
 ];
 
-export const cashbackOffers = [
+export const CASHBACK_OFFERS = [
   {
     title: "For food delivery, cafes and restaurants",
     text: "5%",
@@ -84,7 +84,7 @@ export const cashbackOffers = [
   },
 ];
 
-export const ratesConditions = [
+export const RATES_CONDITIONS = [
   {
     title: "Card currency",
     text: "Rubles, dollars, euro",
@@ -115,7 +115,7 @@ export const ratesConditions = [
   },
 ];
 
-export const accordionFirst = [
+export const ACCORDION_FIRST = [
   {
     query: "How to get a card?",
     response: "We will deliver your card by courier free of charge. Delivery in Moscow and St. Petersburg - 1-2 working days. For other regions of the Russian Federation - 2-5 working days.",
@@ -138,7 +138,7 @@ export const accordionFirst = [
   },
 ];
 
-export const accordionSecond = [
+export const ACCORDION_SECOND = [
   {
     query: "What is an interest free credit card?",
     response: "A credit card with a grace period is a bank card with an established credit limit, designed for payment, reservation of goods and services, as well as for receiving cash, which allows you to use credit funds free of charge for a certain period.",
@@ -157,7 +157,7 @@ export const accordionSecond = [
   },
 ];
 
-export const howToSteps = [
+export const HOW_TO_STEPS = [
   "Fill out an online application - you do not need to visit the bank",
   "Find out the bank's decision immediately after filling out the application",
   "The bank will deliver the card free of charge, wherever convenient, to your city"
