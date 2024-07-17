@@ -1,14 +1,14 @@
 import "./Loader.scss";
 import type { LoaderProps } from "./types";
 
-export function Loader({ width = "70px", height = "70px", spinnerColor = "#b4387a", spinnerDuration = "1s" }: LoaderProps) {
+export function Loader({ width = "70px", height = "70px", spinnerColor = "#b4387a", spinnerDuration = "1s", className }: LoaderProps) {
   const style = {
     width,
     height,
   };
 
   return (
-    <div style={style} className="Loader">
+    <div style={style} className={`Loader ${className || ""}`}>
       <svg viewBox="0 0 70 70" width={70} height={70}>
         <circle
           cx="35"
