@@ -1,8 +1,8 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import { Button } from "../../components/Button/Button";
 import { Divider } from "../../components/Divider/Divider";
-import { AmountInput } from "./AmountInput";
+import { AmountInput } from "./components/AmountInput";
 import { usePrescoringForm } from "../../hooks/usePrescoringForm";
 import { Loader } from "../Loader/Loader";
 import { convertFormCurrency } from "../../utils/convertFormCurrency";
@@ -13,8 +13,9 @@ import {
   prescoringTexts
 } from "./data-list-prescoringForm";
 import { PrescoringForm, PrescoringFormProps } from "./types";
-import { ContactInfoInputs } from "./ContactInfoInputs";
+import { ContactInfoInputs } from "./components/ContactInfoInputs";
 import "./Prescoring.scss";
+import { postPrescoring } from "./api/api";
 
 function PrescoringFormHeader() {
   return (
@@ -28,7 +29,7 @@ function PrescoringFormHeader() {
 function SelectedLoanAmount({ amount }: { amount: string }) {
   return (
     <section>
-      <h3 className="PrescoringForm__subtitle PrescoringForm__subtitle">{prescoringTexts.chooseAmount}</h3>
+      <h3 className="PrescoringForm__subtitle">{prescoringTexts.chooseAmount}</h3>
       <p>{amount}</p>
       <Divider />
     </section>
@@ -36,62 +37,72 @@ function SelectedLoanAmount({ amount }: { amount: string }) {
 }
 
 export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }: PrescoringFormProps) {
+  const [isLoading, setIsLoading] = useState(false);
   const submitButtonRef = useRef<HTMLButtonElement | null>(null);
   const { register, errors, handleSubmit, reset, watch, dirtyFields, isDirty, isSubmitting } = usePrescoringForm(initialValues);
 
   const watchedAmount = watch("amount");
   const formattedAmount = useMemo(() => convertFormCurrency(watchedAmount), [watchedAmount]);
 
-  const onFormSubmit: SubmitHandler<PrescoringForm> = (data) => {
-    console.log(data);
-    reset();
+  const onFormSubmit: SubmitHandler<PrescoringForm> = async (data) => {
+    setIsLoading(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const response = await postPrescoring(data);
+      console.log("Form submitted successfully:", response);
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <section className="PrescoringForm contentCard" ref={loanFormRef}>
-      <form onSubmit={handleSubmit(onFormSubmit)} noValidate>
-        <section className="PrescoringForm__amount">
-          <div className="PrescoringForm__select">
-            <PrescoringFormHeader />
-            <AmountInput
-              register={register("amount", {
-                required: "This field is required",
-                valueAsNumber: true,
-                min: {
-                  value: MIN_LOAN_AMOUNT,
-                  message: prescoringTexts.amountRangeMessage,
-                },
-                max: {
-                  value: MAX_LOAN_AMOUNT,
-                  message: prescoringTexts.amountRangeMessage,
-                },
-              })}
-              error={errors.amount}
-            />
-          </div>
-          <SelectedLoanAmount amount={formattedAmount} />
-        </section>
-        <section className="Prescoring__info">
-          <h3 className="Prescoring__heading Prescoring__heading--third">
-            {prescoringTexts.contactDetails}
-          </h3>
-          <div className="Prescoring__container">
-            <ContactInfoInputs register={register} errors={errors} dirtyFields={dirtyFields} />
-          </div>
-        </section>
-        <Button
-          disabled={!isDirty || isSubmitting}
-          className="Button Prescoring__button"
-          type="submit"
-          btnRef={submitButtonRef}
-        >
-          {isSubmitting ? (
-            <Loader className="Prescoring__loader" />
-          ) : (
-            "Continue"
-          )}
-        </Button>
-      </form>
+      {isLoading ? (
+        <Loader className="Prescoring__loader" />
+      ) : (
+        <form onSubmit={handleSubmit(onFormSubmit)} noValidate>
+          <section className="PrescoringForm__amount">
+            <div className="PrescoringForm__select">
+              <PrescoringFormHeader />
+              <AmountInput
+                register={register("amount", {
+                  required: "This field is required",
+                  valueAsNumber: true,
+                  min: {
+                    value: MIN_LOAN_AMOUNT,
+                    message: prescoringTexts.amountRangeMessage,
+                  },
+                  max: {
+                    value: MAX_LOAN_AMOUNT,
+                    message: prescoringTexts.amountRangeMessage,
+                  },
+                })}
+                error={errors.amount}
+              />
+            </div>
+            <SelectedLoanAmount amount={formattedAmount} />
+          </section>
+          <section className="Prescoring__info">
+            <h3 className="Prescoring__heading Prescoring__heading--third">
+              {prescoringTexts.contactDetails}
+            </h3>
+            <div className="Prescoring__container">
+              <ContactInfoInputs register={register} errors={errors} dirtyFields={dirtyFields} />
+            </div>
+          </section>
+          <Button
+            disabled={!isDirty || isSubmitting}
+            className="Button Prescoring__button"
+            type="submit"
+            btnRef={submitButtonRef}
+          >
+            Continue
+          </Button>
+        </form>
+      )}
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { Input } from "../../components/Input/Input";
+import { Input } from "../../Input/Input";
 import type { UseFormRegister } from "react-hook-form";
 import {
     NAME_REGEX,
@@ -8,9 +8,10 @@ import {
     MIN_LOAN_AGE,
   prescoringTexts,
   formTexts,
-} from "./data-list-prescoringForm"; 
+} from "../data-list-prescoringForm"; 
 
-import { isAgeWithinRange } from "../../utils/ageValidation";
+import { isAgeWithinRange } from "../../../utils/ageValidation";
+import "../Prescoring.scss";
 
 interface ContactInfoInputsProps {
   register: UseFormRegister<any>;

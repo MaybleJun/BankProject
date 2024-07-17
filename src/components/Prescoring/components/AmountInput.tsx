@@ -1,6 +1,6 @@
-import { Input } from "../../components/Input/Input";
+import { Input } from "../../Input/Input";
 import type { UseFormRegisterReturn } from "react-hook-form";
-import "./Prescoring.scss";
+import "../Prescoring.scss";
 
 interface AmountInputProps {
   register: UseFormRegisterReturn;
