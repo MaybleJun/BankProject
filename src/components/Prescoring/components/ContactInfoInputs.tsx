@@ -1,11 +1,14 @@
 import { Input } from "../../Input/Input";
 import type { UseFormRegister } from "react-hook-form";
+import { Select } from "../../../components/Select/Select";
+
 import {
     NAME_REGEX,
     EMAIL_REGEX,
     PASSPORT_SERIES_REGEX,
     PASSPORT_NUMBER_REGEX,
     MIN_LOAN_AGE,
+    LOAN_DURATION_OPTIONS,
   prescoringTexts,
   formTexts,
 } from "../data-list-prescoringForm"; 
@@ -82,6 +85,17 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
         error={errors.middleName}
         isDirty={dirtyFields.middleName}
       />
+
+<Select
+  register={register("term", {
+    valueAsNumber: true,
+  })}
+  id="term"
+  label="Term" 
+  options={LOAN_DURATION_OPTIONS}
+  optionsLabel="months"
+  required
+/>
       <Input
         register={register("email", {
           required: formTexts.errors.email,

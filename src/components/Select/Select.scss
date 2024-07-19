@@ -1,0 +1,30 @@
+@use "../../app/styles/index.scss" as *;
+
+.Select {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__field {
+    flex: 1;
+    padding: 11px 16px;
+    border: 0;
+    background-color: inherit;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    width: 100%;
+    border: 2px solid rgba(#808080, 0.2);
+    border-radius: 6px;;
+    background-color: #F9F5E3;
+
+    &:focus-within {
+      outline: 2px solid $border-color-purple;
+    }
+  }
+}

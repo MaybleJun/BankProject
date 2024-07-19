@@ -1,0 +1,6 @@
+.Label {
+    &--required::after {
+      content: " *";
+      color: red;
+    }
+  }

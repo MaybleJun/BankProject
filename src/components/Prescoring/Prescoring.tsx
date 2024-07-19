@@ -61,7 +61,7 @@ export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }:
   return (
     <section className="PrescoringForm contentCard" ref={loanFormRef}>
       {isLoading ? (
-        <Loader className="Prescoring__loader" />
+        <Loader className="PrescoringForm__loader" />
       ) : (
         <form onSubmit={handleSubmit(onFormSubmit)} noValidate>
           <section className="PrescoringForm__amount">
@@ -85,17 +85,17 @@ export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }:
             </div>
             <SelectedLoanAmount amount={formattedAmount} />
           </section>
-          <section className="Prescoring__info">
-            <h3 className="Prescoring__heading Prescoring__heading--third">
+          <section className="PrescoringForm__info">
+            <h3 className="PrescoringForm__heading PrescoringForm__heading--third">
               {prescoringTexts.contactDetails}
             </h3>
-            <div className="Prescoring__container">
+            <div className="PrescoringForm__container">
               <ContactInfoInputs register={register} errors={errors} dirtyFields={dirtyFields} />
             </div>
           </section>
           <Button
             disabled={!isDirty || isSubmitting}
-            className="Button Prescoring__button"
+            className="Button PrescoringForm__button"
             type="submit"
             btnRef={submitButtonRef}
           >
