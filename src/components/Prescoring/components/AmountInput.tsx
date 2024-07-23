@@ -5,7 +5,7 @@ import { MIN_LOAN_AMOUNT, MAX_LOAN_AMOUNT } from "../data-list-prescoringForm";
 interface AmountInputProps {
   register: UseFormRegisterReturn;
   error: any;
-  amount: number; // Add this prop
+  amount: number; 
 }
 
 export function AmountInput({ register, error, amount }: AmountInputProps) {
@@ -24,6 +24,10 @@ export function AmountInput({ register, error, amount }: AmountInputProps) {
         max={MAX_LOAN_AMOUNT}
         step="1000"
       />
+      <div className="PrescoringForm__rangeValues">
+        <span>{MIN_LOAN_AMOUNT}</span>
+        <span>{MAX_LOAN_AMOUNT}</span>
+      </div>
       
       <div className="PrescoringForm__error">
         {error && <p>{error.message}</p>}

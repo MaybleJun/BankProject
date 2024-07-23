@@ -89,7 +89,7 @@
   }
 
   &__amountLabel {
-    
+
     font-weight: 500;
     
   }
@@ -101,9 +101,18 @@
     line-height: 1;
   }
 
+  &__rangeValues {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1px;
+    font-weight: 500;
+    color: #786D6D;
+  }
+
   &__error {
     color: red;
     margin-top: 8px;
+    
   }
 
   @media screen and (max-width: $max-width-mobile) {
