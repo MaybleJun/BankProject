@@ -34,7 +34,8 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
   } = formTexts.inputs;
 
   return (
-    <div className="Prescoring__inputs">
+    <div className="PrescoringForm__container">
+    <div className="PrescoringForm__inputs">
       <Input
         register={register("lastName", {
           required: formTexts.errors.lastName,
@@ -159,6 +160,7 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
         error={errors.passportNumber}
         isDirty={dirtyFields.passportNumber}
       />
+    </div>
     </div>
   );
 }

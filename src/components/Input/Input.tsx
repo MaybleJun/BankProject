@@ -36,9 +36,17 @@ export function Input({
           {...restProps}
         />
         {error ? (
-          <CloseIcon className="Input__icon" />
+          <CloseIcon 
+          className="Input__icon" 
+          width={18}
+          height={18}
+          />
         ) : isDirty ? (
-          <CheckIcon className="Input__icon" />
+          <CheckIcon 
+          className="Input__icon"
+          width={18}
+          height={18}
+           />
         ) : null}
       </div>
       {error && <span className="Input__error">{error.message}</span>}

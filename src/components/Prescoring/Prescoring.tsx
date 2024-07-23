@@ -89,9 +89,9 @@ export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }:
             <h3 className="PrescoringForm__heading PrescoringForm__heading--third">
               {prescoringTexts.contactDetails}
             </h3>
-            <div className="PrescoringForm__container">
+            
               <ContactInfoInputs register={register} errors={errors} dirtyFields={dirtyFields} />
-            </div>
+
           </section>
           <Button
             disabled={!isDirty || isSubmitting}
