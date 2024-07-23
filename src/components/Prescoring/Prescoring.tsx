@@ -36,7 +36,10 @@ function SelectedLoanAmount({ amount }: { amount: string }) {
     );
 }
 
-export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }: PrescoringFormProps) {
+export function Prescoring({
+    loanFormRef,
+    initialValues = INITIAL_FORM_VALUES,
+}: PrescoringFormProps) {
     const [isLoading, setIsLoading] = useState(false);
     const submitButtonRef = useRef<HTMLButtonElement | null>(null);
     const {
@@ -95,7 +98,11 @@ export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }:
                         </h3>
                         <div className="PrescoringForm__container">
 
-                            <ContactInfoInputs register={register} errors={errors} dirtyFields={dirtyFields} />
+                            <ContactInfoInputs
+                                register={register}
+                                errors={errors}
+                                dirtyFields={dirtyFields}
+                            />
                             <Button
                                 disabled={!isDirty || isSubmitting}
                                 className="Button PrescoringForm__button"

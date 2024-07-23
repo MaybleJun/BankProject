@@ -117,7 +117,8 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
                 <Input
                     register={register('birthdate', {
                         required: formTexts.errors.birthdate,
-                        validate: (value) => isAgeWithinRange(value, MIN_LOAN_AGE) || formTexts.errors.minAge,
+                        validate: (value) => isAgeWithinRange(value, MIN_LOAN_AGE)
+                        || formTexts.errors.minAge,
                     })}
                     id="birthdate"
                     type="date"

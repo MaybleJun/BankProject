@@ -1,4 +1,4 @@
-export const EMAIL_PATTERN = /^[\w\.]{2,50}@[\w\.]{2,20}$/i;
+export const EMAIL_PATTERN = /^[\w.]{2,50}@[\w.]{2,20}$/i;
 
 export const newsletterText = {
     placeholder: 'Your email',

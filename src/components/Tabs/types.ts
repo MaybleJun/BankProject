@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface TabContentProps {
     children: React.ReactNode;
     className?: string;

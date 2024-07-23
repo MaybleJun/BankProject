@@ -101,7 +101,8 @@ const LoanPage = () => {
                     </ul>
                     <Button
                         className="Button mainCard__button"
-                        onClick={() => formSectionRef.current && scrollToForm(formSectionRef.current)}
+                        onClick={() => formSectionRef.current
+                          && scrollToForm(formSectionRef.current)}
                     >
                         Apply for card
                     </Button>

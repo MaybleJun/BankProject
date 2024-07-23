@@ -14,7 +14,8 @@ const createAxiosInstance = (baseURL: string): AxiosInstance => axios.create({
 
 const apiClient = createAxiosInstance(API_BASE_URL);
 
-export const sendNewsletterEmail = async (data: SupportEmailFormProps): Promise<AxiosResponse | undefined> => {
+export const sendNewsletterEmail = async (data: SupportEmailFormProps)
+: Promise<AxiosResponse | undefined> => {
     try {
         const response: AxiosResponse = await apiClient.post(NEWSLETTER_ENDPOINT, data);
         if (response.status >= 200 && response.status < 300) {
@@ -27,6 +28,6 @@ export const sendNewsletterEmail = async (data: SupportEmailFormProps): Promise<
         } else {
             console.error(`Unexpected error: ${error}`);
         }
-        return undefined;
     }
+    return undefined;
 };

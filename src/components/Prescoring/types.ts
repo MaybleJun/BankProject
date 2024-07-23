@@ -1,7 +1,4 @@
-export interface PrescoringFormProps {
-    loanFormRef?: React.RefObject<HTMLElement>;
-    initialValues?: PrescoringForm;
-  }
+import React from 'react';
 
 export interface PrescoringForm {
     amount: number;
@@ -13,4 +10,9 @@ export interface PrescoringForm {
     birthdate: string | Date;
     passportSeries: string;
     passportNumber: string;
+  }
+
+export interface PrescoringFormProps {
+    loanFormRef?: React.RefObject<HTMLElement>;
+    initialValues?: PrescoringForm;
   }

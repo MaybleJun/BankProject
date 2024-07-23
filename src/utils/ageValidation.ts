@@ -4,7 +4,7 @@ export const isAgeWithinRange = (
     maxAllowedAge: number = 120,
 ): boolean => {
     const parsedBirthDate = new Date(birthDate);
-    if (isNaN(parsedBirthDate.getTime())) return false;
+    if (Number.isNaN(parsedBirthDate.getTime())) return false;
 
     const currentDate = new Date();
     const calculatedAge = currentDate.getFullYear() - parsedBirthDate.getFullYear();
