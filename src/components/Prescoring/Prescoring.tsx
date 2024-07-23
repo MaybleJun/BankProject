@@ -81,6 +81,7 @@ export function Prescoring({ loanFormRef, initialValues = INITIAL_FORM_VALUES }:
                   },
                 })}
                 error={errors.amount}
+                amount={watchedAmount} // Pass the watched amount here
               />
             </div>
             <SelectedLoanAmount amount={formattedAmount} />
