@@ -1,0 +1,27 @@
+@use "../../app/styles/index.scss" as *;
+
+.Tooltip {
+  &__wrapper {
+    position: relative;
+  }
+
+  &__text {
+    position: absolute;
+    width: 160px;
+    padding: 8px;
+    background-color: #3D3D3D;
+    color: $text-color-white;
+    font-size: 12px;
+    line-height: 1;
+    pointer-events: none;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.1s ease-in;
+
+    &--visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

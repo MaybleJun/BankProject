@@ -3,6 +3,7 @@ import { Button } from "../../components/Button/Button";
 import { Accordion } from "../../components/Accordion/Accordion";
 import { TabContent, Tabs } from "../../components/Tabs/Tabs";
 import { Prescoring } from "../../components/Prescoring/Prescoring";
+import Tooltip from "../../components/Tooltip/Tooltip";
 import CARD_IMG_1 from '../../assets/cardImg1.png';
 
 import "./LoanPage.scss";
@@ -19,6 +20,20 @@ import {
 } from "./data-list";
 
 const LoanPage = () => {
+
+  const mainCardList = MAIN_CARD_LIST.map((item, index) => (
+    <Tooltip
+      key={index}
+      tooltipText={item.tooltip}
+      aria-describedby={`mainCardTooltip-${index}`}
+      tooltipId={`mainCardTooltip-${index}`}
+    >
+      <li className="mainCard__item">
+        <p className="mainCard__itemTitle">{item.title}</p>
+        <p className="mainCard__itemText">{item.text}</p>
+      </li>
+    </Tooltip>
+  ));
 
   const aboutCard = ABOUT_CARDS.map((card) => (
     <article className="aboutCard__card contentCard" key={card.title}>
@@ -83,12 +98,7 @@ const LoanPage = () => {
             <p className="mainCard__text">Cash withdrawals and transfers without commission and interest.</p>
           </div>
           <ul className="mainCard__list">
-            {MAIN_CARD_LIST.map((item, index) => (
-              <li className="mainCard__item" key={index}>
-                <p className="mainCard__itemTitle">{item.title}</p>
-                <p className="mainCard__itemText">{item.text}</p>
-              </li>
-            ))}
+          {mainCardList}
           </ul>
           <Button 
             className="Button mainCard__button"
