@@ -1,5 +1,5 @@
-import { SelectHTMLAttributes } from "react";
-import type { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { SelectHTMLAttributes } from 'react';
+import type { FieldError, UseFormRegisterReturn } from 'react-hook-form';
 
 export type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   register: UseFormRegisterReturn;

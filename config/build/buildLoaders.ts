@@ -33,7 +33,6 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-
     return [
         cssLoader,
         typescriptLoader,

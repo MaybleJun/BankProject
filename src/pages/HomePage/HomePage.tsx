@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../../components/Button/Button';
 import CurrencyExchange from '../../features/CurrencyExchange/CurrencyExchange';
 import CurrentNewsSlider from '../../features/CurrentNewsSlider/CurrentNewsSlider';
-import {SupportEmailForm} from '../../components/SupportEmailForm/SupportEmailForm';
+import { SupportEmailForm } from '../../components/SupportEmailForm/SupportEmailForm';
 import cardImg1 from '../../assets/cardImg1.png';
 import cardImg2 from '../../assets/cardImg2.png';
 import cardImg3 from '../../assets/cardImg3.png';

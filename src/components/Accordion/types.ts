@@ -3,13 +3,12 @@ export interface AccordionListItem {
     response: string;
   }
 
-  export interface AccordionItemProperties extends AccordionListItem {
+export interface AccordionItemProperties extends AccordionListItem {
     active: boolean;
     trigger: () => void;
   }
-  
 
-  export interface AccordionProperties {
+export interface AccordionProperties {
     contentList: AccordionListItem[];
-    title?: string; 
+    title?: string;
   }

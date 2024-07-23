@@ -6,9 +6,9 @@ type DividerProps = {
 };
 
 export function Divider({ styles }: DividerProps) {
-  return (
-    <span className="Divider">
-      <span className="Divider__line" style={styles}></span>
-    </span>
-  );
+    return (
+        <span className="Divider">
+            <span className="Divider__line" style={styles} />
+        </span>
+    );
 }

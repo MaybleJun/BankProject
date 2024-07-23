@@ -2,8 +2,8 @@ export interface PrescoringFormProps {
     loanFormRef?: React.RefObject<HTMLElement>;
     initialValues?: PrescoringForm;
   }
-  
-  export interface PrescoringForm {
+
+export interface PrescoringForm {
     amount: number;
     term: number;
     firstName: string;

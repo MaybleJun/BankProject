@@ -20,6 +20,6 @@ export default (env: BuildEnv) => {
         isDev,
         port: PORT,
     });
-     
+
     return config;
 };
