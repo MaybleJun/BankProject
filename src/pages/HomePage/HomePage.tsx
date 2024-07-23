@@ -2,14 +2,14 @@ import React from 'react';
 import { Button } from '../../components/Button/Button';
 import CurrencyExchange from '../../features/CurrencyExchange/CurrencyExchange';
 import CurrentNewsSlider from '../../features/CurrentNewsSlider/CurrentNewsSlider';
+import {SupportEmailForm} from '../../components/SupportEmailForm/SupportEmailForm';
 import cardImg1 from '../../assets/cardImg1.png';
 import cardImg2 from '../../assets/cardImg2.png';
 import cardImg3 from '../../assets/cardImg3.png';
 import cardImg4 from '../../assets/cardImg4.png';
 import imgManLaptop from '../../assets/imgManLaptop.png';
 import imgMap from '../../assets/imgMap.png';
-import  IconEmail from '../../assets/iconEmail.svg';
-import IconTelegram from '../../assets/iconTelegram.svg';
+
 import './HomePage.scss';
 
 const HomePage = () => (
@@ -84,31 +84,7 @@ const HomePage = () => (
             <h2 className="assistance__title">Support</h2>
             <h3 className="assistance__subtitle">Subscribe Newsletter & get</h3>
             <p className="assistance__updates">Bank News</p>
-            <form>
-                <div className="assistance__formWrapper">
-                    <div className="assistance__inputWrapper">
-                        <label htmlFor="email" className="assistance__emailLabel">
-                        <IconEmail className="assistance__emailIcon" width="27" height="25" />
-                            <input
-                                className="assistance__emailInput"
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Your email"
-                                autoComplete="email"
-                            />
-                        </label>
-                    </div>
-                    <Button className="Button assistance__submitButton">
-                        <IconTelegram
-                            className="assistance__sendImage"
-                            width="20"
-                            height="16"
-                        />
-                        Subscribe
-                    </Button>
-                </div>
-            </form>
+            <SupportEmailForm />
 
         </section>
     </main>
