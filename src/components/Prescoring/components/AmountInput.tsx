@@ -1,6 +1,7 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 import '../Prescoring.scss';
 import { MIN_LOAN_AMOUNT, MAX_LOAN_AMOUNT } from '../data-list-prescoringForm';
+import { useEffect } from 'react';
 
 interface AmountInputProps {
   register: UseFormRegisterReturn;
@@ -9,6 +10,15 @@ interface AmountInputProps {
 }
 
 export function AmountInput({ register, error, amount }: AmountInputProps) {
+    const updateSliderBackground = (value: number) => {
+        const percentage = ((value - MIN_LOAN_AMOUNT) / (MAX_LOAN_AMOUNT - MIN_LOAN_AMOUNT)) * 100;
+        document.documentElement.style.setProperty('--slider-value', `${percentage}%`);
+    };
+
+    useEffect(() => {
+        updateSliderBackground(amount);
+    }, [amount]);
+
     return (
         <div className="PrescoringForm__amountWrapper">
             <label htmlFor="amount" className="PrescoringForm__amountLabel">Select Amount</label>
@@ -23,6 +33,7 @@ export function AmountInput({ register, error, amount }: AmountInputProps) {
                 min={MIN_LOAN_AMOUNT}
                 max={MAX_LOAN_AMOUNT}
                 step="1000"
+                onInput={(e) => updateSliderBackground(Number(e.currentTarget.value))}
             />
             <div className="PrescoringForm__rangeValues">
                 <span>{MIN_LOAN_AMOUNT}</span>

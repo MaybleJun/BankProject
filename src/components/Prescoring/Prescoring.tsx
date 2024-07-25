@@ -65,57 +65,50 @@ export function Prescoring({
 
     return (
         <section className="PrescoringForm contentCard" ref={loanFormRef}>
-            {isLoading ? (
-                <Loader className="PrescoringForm__loader" />
-            ) : (
-                <form onSubmit={handleSubmit(onFormSubmit)} noValidate>
-                    <section className="PrescoringForm__amount">
-
-                        <div className="PrescoringForm__select">
-                            <PrescoringFormHeader />
-                            <AmountInput
-                                register={register('amount', {
-                                    required: 'This field is required',
-                                    valueAsNumber: true,
-                                    min: {
-                                        value: MIN_LOAN_AMOUNT,
-                                        message: prescoringTexts.amountRangeMessage,
-                                    },
-                                    max: {
-                                        value: MAX_LOAN_AMOUNT,
-                                        message: prescoringTexts.amountRangeMessage,
-                                    },
-                                })}
-                                error={errors.amount}
-                                amount={watchedAmount}
-                            />
-                        </div>
-                        <SelectedLoanAmount amount={formattedAmount} />
-                    </section>
-                    <section className="PrescoringForm__info">
-                        <h3 className="PrescoringForm__heading PrescoringForm__heading--third">
-                            {prescoringTexts.contactDetails}
-                        </h3>
-                        <div className="PrescoringForm__container">
-
-                            <ContactInfoInputs
-                                register={register}
-                                errors={errors}
-                                dirtyFields={dirtyFields}
-                            />
-                            <Button
-                                disabled={!isDirty || isSubmitting}
-                                className="Button PrescoringForm__button"
-                                type="submit"
-                                btnRef={submitButtonRef}
-                            >
-                                Continue
-                            </Button>
-                        </div>
-                    </section>
-
-                </form>
-            )}
+            <form onSubmit={handleSubmit(onFormSubmit)} noValidate>
+                <section className="PrescoringForm__amount">
+                    <div className="PrescoringForm__select">
+                        <PrescoringFormHeader />
+                        <AmountInput
+                            register={register('amount', {
+                                required: 'This field is required',
+                                valueAsNumber: true,
+                                min: {
+                                    value: MIN_LOAN_AMOUNT,
+                                    message: prescoringTexts.amountRangeMessage,
+                                },
+                                max: {
+                                    value: MAX_LOAN_AMOUNT,
+                                    message: prescoringTexts.amountRangeMessage,
+                                },
+                            })}
+                            error={errors.amount}
+                            amount={watchedAmount}
+                        />
+                    </div>
+                    <SelectedLoanAmount amount={formattedAmount} />
+                </section>
+                <section className="PrescoringForm__info">
+                    <h3 className="PrescoringForm__heading PrescoringForm__heading--third">
+                        {prescoringTexts.contactDetails}
+                    </h3>
+                    <div className="PrescoringForm__container">
+                        <ContactInfoInputs
+                            register={register}
+                            errors={errors}
+                            dirtyFields={dirtyFields}
+                        />
+                        <Button
+                            disabled={!isDirty || isSubmitting}
+                            className="Button PrescoringForm__button"
+                            type="submit"
+                            btnRef={submitButtonRef}
+                        >
+                            {isLoading ? <Loader className="PrescoringForm__loader" /> : 'Continue'}
+                        </Button>
+                    </div>
+                </section>
+            </form>
         </section>
     );
 }

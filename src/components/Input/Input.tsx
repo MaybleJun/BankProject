@@ -38,14 +38,14 @@ export function Input({
                 {error ? (
                     <CloseIcon
                         className="Input__icon"
-                        width={18}
-                        height={18}
+                        width={20}
+                        height={20}
                     />
                 ) : isDirty ? (
                     <CheckIcon
                         className="Input__icon"
-                        width={18}
-                        height={18}
+                        width={20}
+                        height={20}
                     />
                 ) : null}
             </div>

@@ -43,6 +43,16 @@
     padding-right: 16px;
   }
 
+    &__loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+  }
+  
+
   &__desc {
     margin-top: 8px;
     font-weight: 500;
@@ -75,10 +85,10 @@
     -webkit-appearance: none;
     height: 8px;
     border-radius: 5px;
-    background: #ddd;
+    background: linear-gradient(to right, #5B35D5 var(--slider-value, 0%), #ddd 0%);
     outline: none;
     opacity: 0.7;
-    -webkit-transition: 0.2s;
+    -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
 
     &::-webkit-slider-thumb {
@@ -98,6 +108,7 @@
       background: #5B35D5;
       cursor: pointer;
     }
+
   }
 
   &__amountLabel {

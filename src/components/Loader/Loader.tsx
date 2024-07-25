@@ -2,7 +2,7 @@ import './Loader.scss';
 import type { LoaderProps } from './types';
 
 export function Loader({
-    width = '70px', height = '70px', spinnerColor = '#b4387a', spinnerDuration = '1s', className,
+    width = '24px', height = '24px', spinnerColor = '#b4387a', spinnerDuration = '1s', className,
 }: LoaderProps) {
     const style = {
         width,
