@@ -1,13 +1,14 @@
-import { useForm, UseFormRegister } from 'react-hook-form';
+import { useForm, UseFormRegister, UseFormTrigger } from 'react-hook-form';
 import type { PrescoringForm } from '../components/Prescoring/types';
 
 export function usePrescoringForm(defaultValues: PrescoringForm) {
     const {
         register, formState: {
             errors, isDirty, dirtyFields, isSubmitting,
-        }, handleSubmit, reset, watch,
+        }, handleSubmit, reset, watch, trigger
     } = useForm<PrescoringForm>({
         mode: 'all',
+        reValidateMode: 'onSubmit',
         defaultValues,
     });
 
@@ -22,5 +23,6 @@ export function usePrescoringForm(defaultValues: PrescoringForm) {
       isDirty,
       dirtyFields,
       isSubmitting,
+      trigger,
   };
 }

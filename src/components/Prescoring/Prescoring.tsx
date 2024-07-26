@@ -43,13 +43,17 @@ export function Prescoring({
     const [isLoading, setIsLoading] = useState(false);
     const submitButtonRef = useRef<HTMLButtonElement | null>(null);
     const {
-        register, errors, handleSubmit, reset, watch, dirtyFields, isDirty, isSubmitting,
+        register, errors, handleSubmit, reset, watch, dirtyFields, isDirty, isSubmitting, trigger
     } = usePrescoringForm(initialValues);
 
     const watchedAmount = watch('amount');
     const formattedAmount = useMemo(() => convertFormCurrency(watchedAmount), [watchedAmount]);
 
     const onFormSubmit: SubmitHandler<PrescoringForm> = async (data) => {
+        // Trigger validation
+        const isValid = await trigger();
+        if (!isValid) return; // Stop submission if validation fails
+
         setIsLoading(true);
         try {
             await new Promise((resolve) => setTimeout(resolve, 2000));
