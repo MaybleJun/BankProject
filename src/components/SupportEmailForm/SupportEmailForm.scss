@@ -72,6 +72,12 @@
     outline: 1px solid $border-color-purple;
   }
 
+  &__successMessage {
+    font-size: $font-size-s;
+    font-weight: 500;
+    text-align: center;
+  }
+
   @media screen and (max-width: $max-width-mobile) {
     flex-direction: column;
     gap: 32px;

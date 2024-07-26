@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { sendNewsletterEmail } from './api/api';
 import { Button } from '../../components/Button/Button';
@@ -12,6 +13,7 @@ import { EMAIL_PATTERN, newsletterText } from './data-list';
 
 export function SupportEmailForm() {
     const [subscribedEmails, updateSubscribedEmails] = useLocalStorage<SupportEmailFormProps['email'][]>('newsletterSubscription', []);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const {
         register,
@@ -27,6 +29,7 @@ export function SupportEmailForm() {
             if (apiResponse?.status === 200) {
                 updateSubscribedEmails((emailList) => [...emailList, formData.email]);
                 setValue('email', newsletterText.alreadySubscribed);
+                setIsSubmitted(true); // Update state to show success message
             } else {
                 console.error(`Request failed with status ${apiResponse?.status}: ${apiResponse?.statusText}`);
             }
@@ -36,48 +39,51 @@ export function SupportEmailForm() {
     };
 
     return (
-        <form className="SupportEmailForm" onSubmit={handleSubmit(onSubmit)}>
-            <Label className="SupportEmailForm__label">
-                <IconEmail
-                    className="SupportEmailForm__IconEmail"
-                    width={28}
-                    height={30}
-                />
-                <div className="SupportEmailForm__inputWrapper">
-                    <input
-                        className="SupportEmailForm__input"
-                        type="email"
-                        placeholder={
-                            subscribedEmails.length > 0
-                                ? newsletterText.alreadySubscribed
-                                : newsletterText.placeholder
-                        }
-                        required
-                        autoComplete="email"
-                        aria-invalid={errors ? 'true' : 'false'}
-                        {...register('email', {
-                            required: newsletterText.required,
-                            pattern: {
-                                value: EMAIL_PATTERN,
-                                message: newsletterText.invalidEmail,
-                            },
-                        })}
-                    />
-                    {errors.email && (
-                        <span className="SupportEmailForm__error">
-                            {errors.email?.message}
-                        </span>
-                    )}
-                </div>
-            </Label>
-            <Button className="Button SupportEmailForm__button" type="submit">
-                <IconTelegram
-                    className="SupportEmailForm__IconTelegram"
-                    width={20}
-                    height={16}
-                />
-                {newsletterText.send}
-            </Button>
-        </form>
+        <div>
+            {isSubmitted ? (
+                <p className="SupportEmailForm__successMessage">{newsletterText.alreadySubscribed}</p>
+            ) : (
+                <form className="SupportEmailForm" onSubmit={handleSubmit(onSubmit)}>
+                    <Label className="SupportEmailForm__label">
+                        <IconEmail
+                            className="SupportEmailForm__IconEmail"
+                            width={28}
+                            height={30}
+                        />
+                        <div className="SupportEmailForm__inputWrapper">
+                            <input
+                                className="SupportEmailForm__input"
+                                type="email"
+                                placeholder={newsletterText.placeholder}
+                                required
+                                autoComplete="email"
+                                aria-invalid={errors.email ? 'true' : 'false'}
+                                {...register('email', {
+                                    required: newsletterText.required,
+                                    pattern: {
+                                        value: EMAIL_PATTERN,
+                                        message: newsletterText.invalidEmail,
+                                    },
+                                })}
+                            />
+                            {errors.email && (
+                                <span className="SupportEmailForm__error">
+                                    {errors.email?.message}
+                                </span>
+                            )}
+                        </div>
+                    </Label>
+                    <Button className="Button SupportEmailForm__button" type="submit">
+                        <IconTelegram
+                            className="SupportEmailForm__IconTelegram"
+                            width={20}
+                            height={16}
+                        />
+                        {newsletterText.send}
+                    </Button>
+                </form>
+            )}
+        </div>
     );
 }
+
