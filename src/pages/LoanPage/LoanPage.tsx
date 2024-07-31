@@ -1,8 +1,9 @@
 import { useRef, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import { Button } from '../../components/Button/Button';
 import { Accordion } from '../../components/Accordion/Accordion';
 import { TabContent, Tabs } from '../../components/Tabs/Tabs';
-import { Prescoring } from '../../components/Prescoring/Prescoring';
+import  PrescoringStatus  from '../../components/PrescoringStatus/PrescoringStatus';
 import Tooltip from '../../components/Tooltip/Tooltip';
 import CARD_IMG_1 from '../../assets/cardImg1.png';
 
@@ -20,6 +21,8 @@ import {
 } from './data-list';
 
 const LoanPage = () => {
+
+
     const mainCardList = MAIN_CARD_LIST.map((item, index) => (
         <Tooltip
             key={index}
@@ -139,7 +142,7 @@ const LoanPage = () => {
                 <ul className="howToSteps__list">{howToGetSteps}</ul>
             </div>
 
-            <Prescoring loanFormRef={formSectionRef} />
+            <PrescoringStatus loanFormRef={formSectionRef} />
         </main>
     );
 };

@@ -1,7 +1,7 @@
 import { useRef, useMemo, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
-import { Button } from '../../components/Button/Button';
-import { Divider } from '../../components/Divider/Divider';
+import { Button } from '../Button/Button';
+import { Divider } from '../Divider/Divider';
 import { AmountInput } from './components/AmountInput';
 import { usePrescoringForm } from '../../hooks/usePrescoringForm';
 import { Loader } from '../Loader/Loader';
@@ -12,10 +12,10 @@ import {
     MAX_LOAN_AMOUNT,
     prescoringTexts,
 } from './data-list-prescoringForm';
-import { PrescoringForm, PrescoringFormProps } from './types';
+import { IPrescoringForm, PrescoringFormProps } from '../../models/PrescoringForm';
 import { ContactInfoInputs } from './components/ContactInfoInputs';
-import './Prescoring.scss';
-import { postPrescoring } from './api/api';
+import './PrescoringForm.scss';
+import { sendPrescoringForm } from '../../api/application';
 
 function PrescoringFormHeader() {
     return (
@@ -36,7 +36,7 @@ function SelectedLoanAmount({ amount }: { amount: string }) {
     );
 }
 
-export function Prescoring({
+export function PrescoringForm({
     loanFormRef,
     initialValues = INITIAL_FORM_VALUES,
 }: PrescoringFormProps) {
@@ -49,7 +49,7 @@ export function Prescoring({
     const watchedAmount = watch('amount');
     const formattedAmount = useMemo(() => convertFormCurrency(watchedAmount), [watchedAmount]);
 
-    const onFormSubmit: SubmitHandler<PrescoringForm> = async (data) => {
+    const onFormSubmit: SubmitHandler<IPrescoringForm> = async (data) => {
         // Trigger validation
         const isValid = await trigger();
         if (!isValid) return; // Stop submission if validation fails
@@ -57,7 +57,7 @@ export function Prescoring({
         setIsLoading(true);
         try {
             await new Promise((resolve) => setTimeout(resolve, 2000));
-            const response = await postPrescoring(data);
+            const response = await sendPrescoringForm(data);
             console.log('Form submitted successfully:', response);
             reset();
         } catch (error) {

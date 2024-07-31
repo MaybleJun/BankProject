@@ -1,5 +1,5 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
-import '../Prescoring.scss';
+import '../PrescoringForm.scss';
 import { MIN_LOAN_AMOUNT, MAX_LOAN_AMOUNT } from '../data-list-prescoringForm';
 import { useEffect } from 'react';
 

@@ -1,6 +1,6 @@
 import type { UseFormRegister } from 'react-hook-form';
 import { Input } from '../../Input/Input';
-import { Select } from '../../../components/Select/Select';
+import { Select } from '../../Select/Select';
 
 import {
     NAME_REGEX,
@@ -9,12 +9,11 @@ import {
     PASSPORT_NUMBER_REGEX,
     MIN_LOAN_AGE,
     LOAN_DURATION_OPTIONS,
-    prescoringTexts,
     formTexts,
 } from '../data-list-prescoringForm';
 
 import { isAgeWithinRange } from '../../../utils/ageValidation';
-import '../Prescoring.scss';
+import '../PrescoringForm.scss';
 
 interface ContactInfoInputsProps {
   register: UseFormRegister<any>;
