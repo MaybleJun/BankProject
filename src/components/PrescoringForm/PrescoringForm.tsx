@@ -1,5 +1,6 @@
 import { useRef, useMemo, useState } from 'react';
 import { SubmitHandler } from 'react-hook-form';
+import { useAppDispatch } from "../../hooks/useTypeReduxStore";
 import { Button } from '../Button/Button';
 import { Divider } from '../Divider/Divider';
 import { AmountInput } from './components/AmountInput';
@@ -15,7 +16,7 @@ import {
 import { IPrescoringForm, PrescoringFormProps } from '../../models/PrescoringForm';
 import { ContactInfoInputs } from './components/ContactInfoInputs';
 import './PrescoringForm.scss';
-import { sendPrescoringForm } from '../../api/application';
+import { submitPrescoringForm } from '../../store/slice/loanSlice';
 
 function PrescoringFormHeader() {
     return (
@@ -42,6 +43,7 @@ export function PrescoringForm({
 }: PrescoringFormProps) {
     const [isLoading, setIsLoading] = useState(false);
     const submitButtonRef = useRef<HTMLButtonElement | null>(null);
+    const dispatch = useAppDispatch();
     const {
         register, errors, handleSubmit, reset, watch, dirtyFields, isDirty, isSubmitting, trigger
     } = usePrescoringForm(initialValues);
@@ -50,15 +52,14 @@ export function PrescoringForm({
     const formattedAmount = useMemo(() => convertFormCurrency(watchedAmount), [watchedAmount]);
 
     const onFormSubmit: SubmitHandler<IPrescoringForm> = async (data) => {
-        // Trigger validation
+        // Триггерим валидацию
         const isValid = await trigger();
-        if (!isValid) return; // Stop submission if validation fails
+        if (!isValid) return; // Останавливаем отправку, если валидация не пройдена
 
         setIsLoading(true);
         try {
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-            const response = await sendPrescoringForm(data);
-            console.log('Form submitted successfully:', response);
+            await dispatch(submitPrescoringForm(data)); // Обрабатываем экшен без unwrap
+            console.log('Form submitted successfully');
             reset();
         } catch (error) {
             console.error('Error submitting form:', error);

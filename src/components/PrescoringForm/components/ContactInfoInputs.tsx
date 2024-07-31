@@ -120,7 +120,7 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
                         || formTexts.errors.minAge,
                     })}
                     id="birthdate"
-                    type="text"
+                    type="date"
                     label={birthdate}
                     placeholder={formTexts.placeholders.birthdate}
                     required

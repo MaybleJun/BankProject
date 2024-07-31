@@ -3,6 +3,7 @@ import { useSelectorTyped } from '../../hooks/useTypeReduxStore';
 import { LoanPrescoringStatusEnum } from "../../models/loanPrescoringStatusEnum";
 import { AppState } from "../../store/store";
 import { PrescoringForm } from '../PrescoringForm/PrescoringForm';
+import  PrescoringOffers  from '../PrescoringOffers/PrescoringOffers';
 import "./PrescoringStatus.scss";
 import { Loader } from '../Loader/Loader';
 
@@ -14,14 +15,16 @@ const PrescoringStatus: React.FC<PrescoringStatusProps> = ({ loanFormRef }) => {
     const loanPrescoringStatus = useSelectorTyped((state: AppState) => state.loan.loanPrescoringStatus);
     const isProcessing = useSelectorTyped((state: AppState) => state.loan.isProcessing);
 
+    console.log('loanPrescoringStatus:', loanPrescoringStatus); // Логирование состояния
+
     return (
         <div className="card-status" ref={loanFormRef}>
             {isProcessing && (
                 <Loader/>
             )}
             {loanPrescoringStatus === LoanPrescoringStatusEnum.Form && <PrescoringForm />}
-            {/* {loanPrescoringStatus === LoanStatusEnum.Offers && <PrescoringOffers />}
-            {loanPrescoringStatus === LoanStatusEnum.Decision && <PrescoringDecision />} */}
+            {loanPrescoringStatus === LoanPrescoringStatusEnum.Offers && <PrescoringOffers />}
+            {/* {loanPrescoringStatus === LoanStatusEnum.Decision && <PrescoringDecision />}  */}
         </div>
     );
 };

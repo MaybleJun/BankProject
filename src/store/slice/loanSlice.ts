@@ -86,4 +86,73 @@ export const submitPrescoringForm = (data: IPrescoringForm) => async (dispatch: 
     }
 };
 
+export const submitScoringForm = (data: ScoringType, applicationId: string) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        await ApiService.registrateApplication(data, applicationId);
+        dispatch(updateCurrentStep(StepsEnum.Step3));
+        dispatch(setProcessingState(false));
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        console.error((e as Error).message);
+    }
+};
 
+export const applySelectedOffer = (data: IOfferCard) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        await ApiService.applyApplication(data);
+        dispatch(processOfferSuccess());
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        console.error((e as Error).message);
+    }
+};
+
+export const fetchPaymentList = (applicationId: string) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        const response = await ApiService.getPaymentList(applicationId);
+        dispatch(updatePaymentsSuccess(response.data.credit.paymentSchedule));
+        dispatch(setProcessingState(false));
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        console.error((e as Error).message);
+    }
+};
+
+export const generateDocuments = (applicationId: string) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        await ApiService.createDocuments(applicationId);
+        dispatch(updateCurrentStep(StepsEnum.Step4));
+        dispatch(setProcessingState(false));
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        console.error((e as Error).message);
+    }
+};
+
+export const signGeneratedDocuments = (applicationId: string) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        await ApiService.signDocuments(applicationId);
+        dispatch(updateCurrentStep(StepsEnum.Step5));
+        dispatch(setProcessingState(false));
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        console.error((e as Error).message);
+    }
+};
+
+export const confirmCode = (applicationId: string, code: string) => async (dispatch: AppDispatch) => {
+    dispatch(setProcessingState(true));
+    try {
+        await ApiService.sendCode(applicationId, code);
+        dispatch(resetLoanState());
+    } catch (e) {
+        dispatch(setProcessingState(false));
+        dispatch(setErrorMessage("Invalid confirmation code"));
+        console.error((e as Error).message);
+    }
+};

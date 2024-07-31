@@ -1,0 +1,42 @@
+@use "../../app/styles/index.scss" as *;
+
+.offers {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.Offer-card {
+    background: #ffffff;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    transition: outline 0.3s ease;
+    outline-color: transparent;
+
+    &__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+
+        p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $text-color-gray-dark;
+        }
+
+        &__image {
+            margin-bottom: 10px;
+        }
+    }
+}
