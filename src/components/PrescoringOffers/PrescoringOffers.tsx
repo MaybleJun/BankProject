@@ -1,20 +1,21 @@
 import { useCallback, FC, memo } from "react";
 import { useAppDispatch, useSelectorTyped } from "../../hooks/useTypeReduxStore";
 import { IOfferCard } from "../../models/offerCardModel";
-import { applySelectedOffer } from "../../store/slice/loanSlice";
+import {  resetLoanState, applySelectedOffer } from "../../store/slice/loanSlice";
 import { AppState } from "../../store/types";
 import "./PrescoringOffers.scss";
 import PrsecoringOfferImage from "../../assets/prescrongFormimg.png";
-import  SuccessIcon from '../../assets/Close_round_fill.svg';
-import  ErrorIcon from '../../assets/Check_fill.svg';
+import SuccessIcon from '../../assets/Close_round_fill.svg';
+import ErrorIcon from '../../assets/Check_fill.svg';
 import { Button } from '../../components/Button/Button';
 
 interface IOfferCardProps {
     onSelectClick: (offer: IOfferCard) => void;
+    resetLoanState: () => void;
     offer: IOfferCard;
 }
 
-const OfferCard: FC<IOfferCardProps> = memo(({ onSelectClick, offer }) => {
+const OfferCard: FC<IOfferCardProps> = memo(({ onSelectClick, resetLoanState, offer }) => {
     const {
         requestedAmount,
         totalAmount,
@@ -52,11 +53,13 @@ const OfferCard: FC<IOfferCardProps> = memo(({ onSelectClick, offer }) => {
                     Salary client {isSalaryClient ? <SuccessIcon className="offer-card__icon" /> : <ErrorIcon className="offer-card__icon" />}
                 </p>
             </div>
-            <p>HI</p>
             <Button
                 className="Button Offer-card__button"
                 type="button"
-                onClick={() => onSelectClick(offer)}
+                onClick={() => {
+                    onSelectClick(offer);
+                    resetLoanState();
+                }}
             >
                 Select
             </Button>
@@ -75,10 +78,14 @@ const PrescoringOffers = () => {
         [dispatch]
     );
 
+    const handleResetLoan = useCallback(() => {
+        dispatch(resetLoanState());
+    }, [dispatch]);
+
     return (
         <div className="offers">
             {offersList?.map((offer) => (
-                <OfferCard key={`${offer.applicationId}${offer.monthlyPayment}`} offer={offer} onSelectClick={selectOffer} />
+                <OfferCard key={`${offer.applicationId}${offer.monthlyPayment}`} offer={offer} onSelectClick={selectOffer}  resetLoanState={handleResetLoan} />
             ))}
         </div>
     );

@@ -3,6 +3,7 @@ import { useSelectorTyped } from '../../hooks/useTypeReduxStore';
 import { LoanPrescoringStatusEnum } from "../../models/loanPrescoringStatusEnum";
 import { AppState } from "../../store/store";
 import { PrescoringForm } from '../PrescoringForm/PrescoringForm';
+import  PrescoringDecision  from '../PrescoringDecision/PrescoringDecision';
 import  PrescoringOffers  from '../PrescoringOffers/PrescoringOffers';
 import "./PrescoringStatus.scss";
 import { Loader } from '../Loader/Loader';
@@ -24,7 +25,7 @@ const PrescoringStatus: React.FC<PrescoringStatusProps> = ({ loanFormRef }) => {
             )}
             {loanPrescoringStatus === LoanPrescoringStatusEnum.Form && <PrescoringForm />}
             {loanPrescoringStatus === LoanPrescoringStatusEnum.Offers && <PrescoringOffers />}
-            {/* {loanPrescoringStatus === LoanStatusEnum.Decision && <PrescoringDecision />}  */}
+            {loanPrescoringStatus === LoanPrescoringStatusEnum.Decision && <PrescoringDecision />} 
         </div>
     );
 };
