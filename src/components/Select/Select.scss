@@ -3,13 +3,27 @@
 .Select {
   display: flex;
   flex-direction: column;
-  gap: 8px;
- 
+  gap: 0.5rem;
+
+  &__fieldContainer {
+    display: flex;
+    width: 100%;
+    border: 2px solid rgba(#808080, 0.2);
+    border-radius: 0.4rem;
+    background-color: #F9F5E3;
+
+    &--error {
+      border: 2px solid #FF5631;
+    }
+
+    &:focus-within {
+      outline: 2px solid purple;
+    }
+  }
 
   &__field {
     flex: 1;
-    padding: 13px 16px;
-    font-size: 14px;
+    padding: 0.7rem 1rem;
     border: 0;
     background-color: inherit;
 
@@ -17,17 +31,8 @@
       outline: none;
     }
   }
-  
 
-  &__container {
-    display: flex;
-    width: 100%;
-    border: 2px solid rgba(#808080, 0.2);
-    border-radius: 6px;;
-    background-color: #F9F5E3;
-
-    &:focus-within {
-      outline: 2px solid $border-color-purple;
-    }
+  &__error {
+    color: #FF5631;
   }
 }

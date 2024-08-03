@@ -1,0 +1,82 @@
+@use "../../app/styles/index.scss" as *;
+
+.Scoring {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2), 0 0 8px 0 hsla(0, 0%, 0%, 0.08);
+
+  margin-bottom: 96px;
+
+  
+    &__button {
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: end;
+      min-width: 148px;
+      min-height: 48px;
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-top: 0;
+    }
+    
+  
+    &__title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 80px;
+      margin-bottom: 40px;
+
+      &--third {
+        font-size: 20px;
+        margin-bottom: 30px;
+        margin-top:8px;
+    
+      }
+    }
+  
+    &__text{
+      margin-top:8px;
+      font-size: 30px;
+  
+      &--third {
+        font-size: 20px;
+      }
+    }
+  
+    &__container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    &__inputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+      gap: 16px;
+      padding: 8px 0 24px;
+  
+      &--flex {
+        display: flex;
+        gap: 16px;
+        flex: 1 1 50%;
+        flex-wrap: wrap;
+  
+        & > * {
+          flex: 1 1 320px;
+        }
+      }
+    }
+  
+    &__loader {
+      position: absolute;
+      width: 32px;
+    
+    }
+  }
+  

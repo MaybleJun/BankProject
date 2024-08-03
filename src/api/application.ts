@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IOfferCard } from "../models/offerCardModel";
 import { IPrescoringForm } from "../models/PrescoringForm";
-import { ScoringType } from "../models/scoringModel";
+import { ScoringType } from "../components/ScoringForm/types";
 
 const BASE_URL = "http://localhost:8080/";
 

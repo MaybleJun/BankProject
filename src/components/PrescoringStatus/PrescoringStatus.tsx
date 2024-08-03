@@ -23,7 +23,7 @@ const PrescoringStatus: React.FC<PrescoringStatusProps> = ({ loanFormRef }) => {
             {isProcessing && (
                 <Loader/>
             )}
-            {loanPrescoringStatus === LoanPrescoringStatusEnum.Form && <PrescoringForm />}
+            {loanPrescoringStatus === LoanPrescoringStatusEnum.Form && <PrescoringForm /> }
             {loanPrescoringStatus === LoanPrescoringStatusEnum.Offers && <PrescoringOffers />}
             {loanPrescoringStatus === LoanPrescoringStatusEnum.Decision && <PrescoringDecision />} 
         </div>

@@ -104,7 +104,6 @@ export function PrescoringForm({
                             dirtyFields={dirtyFields}
                         />
                         <Button
-                            // disabled={!isDirty || isSubmitting}
                             className="Button PrescoringForm__button"
                             type="submit"
                             btnRef={submitButtonRef}

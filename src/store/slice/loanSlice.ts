@@ -3,7 +3,7 @@ import { LoanPrescoringStatusEnum } from "../../models/loanPrescoringStatusEnum"
 import { IOfferCard } from "../../models/offerCardModel";
 import { IPayment } from "../../models/paymentModel";
 import { IPrescoringForm } from "../../models/PrescoringForm";
-import { ScoringType } from "../../models/scoringModel";
+import { ScoringType } from "../../components/ScoringForm/types";
 import { StepsEnum } from "../../models/stepsEnum";
 import { ApiService } from "../../api/application";
 import { AppDispatch } from "../store";
