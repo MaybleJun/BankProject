@@ -1,10 +1,10 @@
 
 import { useSelectorTyped } from "../../hooks/useTypeReduxStore";
 import { AppState } from "../../store/store";
-import TableDocument from "../TableDocument/TableDocument";
-import "./Payment.scss";
+import TableDocument from "../../components/TableDocument/TableDocument";
+import "./PaymentPage.scss";
 
-const Payment = () => {
+const PaymentPage = () => {
     const currentStep = useSelectorTyped((state: AppState) => state.loan.currentStep);
     return (
             <section className="Payment">
@@ -20,4 +20,4 @@ const Payment = () => {
     );
 };
 
-export default Payment;
+export default PaymentPage;
