@@ -52,13 +52,12 @@ export function PrescoringForm({
     const formattedAmount = useMemo(() => convertFormCurrency(watchedAmount), [watchedAmount]);
 
     const onFormSubmit: SubmitHandler<IPrescoringForm> = async (data) => {
-        // Триггерим валидацию
         const isValid = await trigger();
-        if (!isValid) return; // Останавливаем отправку, если валидация не пройдена
+        if (!isValid) return;
 
         setIsLoading(true);
         try {
-            await dispatch(submitPrescoringForm(data)); // Обрабатываем экшен без unwrap
+            await dispatch(submitPrescoringForm(data));
             console.log('Form submitted successfully');
             reset();
         } catch (error) {

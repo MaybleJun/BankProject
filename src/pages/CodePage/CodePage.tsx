@@ -18,10 +18,10 @@ const CodePage = () => {
                 ) : (
                     <section className="CodeDicision">
                         <img className="CodeDecision__img"src={OfferImage} alt="Offer" />
-                         <h3 className="CodeDecision__title">Congratulations! You have completed your new credit card.</h3>
-                         <p className="CodeDecision__text">Your credit card will arrive soon. Thank you for choosing us!</p>
+                         <h3 className="CodeDicision__title">Congratulations! You have completed your new credit card.</h3>
+                         <p className="CodeDicision__text">Your credit card will arrive soon. Thank you for choosing us!</p>
                          <Button 
-                            className="Button CodeDecision__button"
+                            className="Button CodeDicision__button"
                             onClick={() => navigateToCurrentStep()}
                             >
                              View other offers of our bank

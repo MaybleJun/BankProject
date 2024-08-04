@@ -16,7 +16,7 @@ const PrescoringStatus: React.FC<PrescoringStatusProps> = ({ loanFormRef }) => {
     const loanPrescoringStatus = useSelectorTyped((state: AppState) => state.loan.loanPrescoringStatus);
     const isProcessing = useSelectorTyped((state: AppState) => state.loan.isProcessing);
 
-    console.log('loanPrescoringStatus:', loanPrescoringStatus); // Логирование состояния
+    console.log('loanPrescoringStatus:', loanPrescoringStatus);
 
     return (
         <div className="card-status" ref={loanFormRef}>
