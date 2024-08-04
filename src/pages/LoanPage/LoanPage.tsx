@@ -6,7 +6,6 @@ import { TabContent, Tabs } from '../../components/Tabs/Tabs';
 import  PrescoringStatus  from '../../components/PrescoringStatus/PrescoringStatus';
 import Tooltip from '../../components/Tooltip/Tooltip';
 import CARD_IMG_1 from '../../assets/cardImg1.png';
-import { CodeInput } from '../../ui/CodeInput/CodeInput';
 
 import './LoanPage.scss';
 
@@ -145,7 +144,6 @@ const LoanPage = () => {
             </div>
 
             <PrescoringStatus loanFormRef={formSectionRef} />
-            <CodeInput numberOfInputs={4}/>
         </main>
     );
 };
