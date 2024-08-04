@@ -1,7 +1,7 @@
 import Sign from "../../components/Sign/Sign";
 import {  useSelectorTyped } from "../../hooks/useTypeReduxStore";
 import { AppState } from "../../store/store";
-import "./documentSigning.scss";
+import "./DocumentSignPage.scss";
 
 const DocumentSigning = () => {
     const currentStep =  useSelectorTyped((state: AppState) => state.loan.currentStep);
