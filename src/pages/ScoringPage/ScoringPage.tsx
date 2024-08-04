@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./ScoringPage.scss";
 import { useAppDispatch, useSelectorTyped } from "../../hooks/useTypeReduxStore";
 import { AppState } from "../../store/store";
+import ScoringForm from "../../components/ScoringForm/ScoringForm";
 import { updateCurrentStep } from "../../store/slice/loanSlice";
 
 
@@ -14,15 +15,15 @@ const ScoringPage: React.FC = () => {
     }, [currentStep, dispatch]);
 
     return (
-        <div className="scoring-page">
-            {/* {currentStep === 2 ? (
+        <div className="ScoringPage">
+            {currentStep === 2 ? (
                 <ScoringForm />
             ) : (
-                <div className="loan-message">
-                    <h2>Wait for a decision on the application</h2>
-                    <p>The answer will come to your mail within 10 minutes</p>
+                <div className="ScoringDecision">
+                    <h2 className="ScoringDecision__title">Wait for a decision on the application</h2>
+                    <p className="ScoringDecision__text">The answer will come to your mail within 10 minutes</p>
                 </div>
-            )} */}
+            )}
         </div>
     );
 };

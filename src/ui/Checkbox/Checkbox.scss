@@ -1,0 +1,42 @@
+@use "../../app/styles/index.scss" as *;
+
+.checkbox-wrapper {
+    &:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    label {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        user-select: none;
+    }
+
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        margin-right: 10px;
+        border: 0.15em solid #808080;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
+input.checked {
+    background-color: #3182ce;
+    position: relative;
+    border: none !important;
+
+    &::before {
+        content: "\2714";
+        font-size: 1.2em;
+        color: #fff;
+        position: absolute;
+        right: 4px;
+        top: -2px;
+    }
+}

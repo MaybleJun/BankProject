@@ -1,0 +1,65 @@
+@use "../../app/styles/index.scss" as *;
+
+.modal {
+    width: 450px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    font-family: "Ubuntu", "Times New Roman", Serif;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+        }
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+    &__info {
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: #1a202c;
+        margin-bottom: 16px;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: flex-end;
+        gap: 40px;
+
+        .Button--deny {
+            background-color: #D93737; 
+        
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease; 
+            min-width: 96px;
+            min-height: 40px;
+
+            &:hover {
+                background-color: darkred; 
+            }
+        }
+
+        .Button--cancel {
+            min-width: 96px;
+            border-radius: 8px;
+            padding: 10px 20px; 
+            cursor: pointer; 
+            min-height: 40px;
+            transition: background-color 0.3s ease; 
+        }
+    }
+}

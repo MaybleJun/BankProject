@@ -5,6 +5,7 @@ import { HomePageAsync } from '../pages/HomePage/HomePage.async';
 import { LoanPageAsync } from '../pages/LoanPage/LoanPage.async';
 import { ScoringPageAsync } from '../pages/ScoringPage/ScoringPage.async';
 import { NotFoundPageAsync } from '../pages/NotFoundPage/NotFoundPage.async';
+import  Payment from '../components/Payment/Payment';
 import Navbar from '../widgets/Navbar/Navbar';
 import Footer from '../widgets/Footer/Footer';
 
@@ -17,9 +18,9 @@ const App = () => (
                 <Route path="/" element={<HomePageAsync />} />
                 <Route path="/loan" element={<LoanPageAsync />} />
                 <Route path="/loan/:applicationId" element={<ScoringPageAsync />} />
-                {/* <Route path="/loan/:applicationId/document" element={<Payment />} />
-                <Route path="/loan/:applicationId/document/sign" element={<DocumentSigning />} />
-                <Route path="/loan/:applicationId/code" element={<CodePage />} /> */}
+                <Route path="/loan/:applicationId/document" element={<Payment />} />
+                {/* <Route path="/loan/:applicationId/document/sign" element={<DocumentSigning />} />
+                <Route path="/loan/:applicationId/code" element={<CodePage />} /> */} 
             </Routes>
         </Suspense>
         <Footer />
