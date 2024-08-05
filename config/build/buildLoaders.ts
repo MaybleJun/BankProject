@@ -33,10 +33,23 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
+    const pdfLoader = {
+        test: /\.pdf$/,
+        use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                },
+            },
+        ],
+    };
+
     return [
         cssLoader,
         typescriptLoader,
         svgLoader,
         fileLoader,
+        pdfLoader,
     ];
 }

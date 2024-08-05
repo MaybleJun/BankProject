@@ -8,9 +8,9 @@ import { AppState } from "../../store/store";
 import { Loader } from "../Loader/Loader";
 import { Button } from "../Button/Button";
 import { Checkbox } from "../../ui/Checkbox/Checkbox";
-// import offerPdf from "../../assets/pdf/credit-card-offer.pdf"
+import offerPdf from "../../assets/pdf/credit-card-offer.pdf"
 
-const Signing = () => {
+const Sign = () => {
     const { applicationId } = useParams();
     const dispatch = useAppDispatch();
     const isProcessing = useSelectorTyped((state: AppState) => state.loan.isProcessing);
@@ -31,7 +31,7 @@ const Signing = () => {
                 of consent to the processing of personal data.
             </p>
             <a className="Signing__docs"
-            //   href={offerPdf}
+              href={offerPdf}
               target="_blank"
               rel="noreferrer"
             >
@@ -53,4 +53,4 @@ const Signing = () => {
     );
 };
 
-export default Signing;
+export default Sign;
