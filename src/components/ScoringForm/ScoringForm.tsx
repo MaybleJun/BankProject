@@ -90,7 +90,7 @@ const ScoringForm = ({ formValues = SCORING_DEFAULT_VALUES }: ScoringProps) => {
               required
             />
             <Select
-              options={[1, 2, 3, 4]}
+              options={[0, 1, 2, 3, 5]}
               register={register("dependentAmount", { required: "Select one of the options", valueAsNumber: true })}
               id="dependentAmount"
               label="Your number of dependents"

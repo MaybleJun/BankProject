@@ -15,7 +15,10 @@ export const Checkbox: FC<CheckboxProps> = ({ labelText, isChecked, setIsChecked
                 <input
                     type="checkbox"
                     checked={isChecked}
-                    onChange={() => setIsChecked((prev) => !prev)}
+                    onChange={() => {
+                        setIsChecked((prev) => !prev);
+                        console.log(`Checkbox changed: ${!isChecked}`);  // Добавлено для отладки
+                    }}
                     className={isChecked ? "checkbox-input checked" : "checkbox-input"}
                     {...additionalProps}
                 />

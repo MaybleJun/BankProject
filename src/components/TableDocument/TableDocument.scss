@@ -6,8 +6,9 @@
     flex-direction: column;
     gap: 40px;
     border-radius: 28px;
-  padding: 32px;
-  box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2), 0 0 8px 0 hsla(0, 0%, 0%, 0.08);
+    padding: 32px;
+    box-shadow: 0 2px 4px 0 hsla(0, 0%, 0%, 0.2), 0 0 8px 0 hsla(0, 0%, 0%, 0.08);
+    background-color: #ffffff;
 
     &__header {
         display: flex;
@@ -16,17 +17,16 @@
 
         h3 {
             margin: 0;
-            color:black;
+            color: #333333;
             font-size: $font-size-l;
+            font-weight: 600;
         }
         p {
-            color:black;
+            color: #666666;
             font-size: $font-size-s;
             font-weight: 500;
         }
     }
-
-    
 
     &__bottom {
         display: flex;
@@ -38,21 +38,34 @@
             align-items: center;
             gap: 30px;
         }
-        &__BtnSend {
+        
+        &__BtnSend, &__BtnDeny {
             border-radius: 8px;
             padding: 10px 20px; 
-            cursor: pointer; 
-            min-width: 96px;
-            transition: background-color 0.3s ease; 
-
-        }
-        &__BtnDeny {
-            background-color: #D93737; 
-            border-radius: 8px;
-            padding: 10px 20px;
             min-width: 96px;
             cursor: pointer;
             transition: background-color 0.3s ease; 
+            border: none; 
+            font-size: $font-size-m; 
+            color: #ffffff;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &__BtnSend {
+            background-color: $button-color-blue;
+            
+            &:disabled {
+                background-color: grey;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
+        }
+
+        &__BtnDeny {
+            background-color: #D93737;
 
             &:hover {
                 background-color: darkred; 

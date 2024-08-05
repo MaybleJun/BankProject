@@ -1,6 +1,13 @@
 @use "../../app/styles/index.scss" as *;
-.ScoringPage {
-    padding: 20px 0 60px;
+.Payment {
+   
+  display: flex;
+  flex-direction: column;
+  gap: 48px; 
+  max-width: $max-width-desktop;
+  width: 100%;
+  margin:0 auto;
+  padding: 20px 0 96px;
 
 }
 

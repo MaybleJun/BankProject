@@ -7,7 +7,7 @@ const DocumentSigning = () => {
     const currentStep =  useSelectorTyped((state: AppState) => state.loan.currentStep);
     return (
         <section>
-            <div className="DocumentSigning">
+            <section className="DocumentSigning">
                 {currentStep === 4 ? (
                     <Sign />
                 ) : (
@@ -16,7 +16,7 @@ const DocumentSigning = () => {
                         <p className="SigningDecision__text">Within 10 minutes you will be sent a PIN code to your email for confirmation</p>
                     </div>
                 )}
-            </div>
+            </section>
         </section>
     );
 };

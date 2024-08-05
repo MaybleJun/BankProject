@@ -26,7 +26,7 @@ const TableDocument = () => {
 
     useEffect(() => {
         if (paymentList === null) dispatch(fetchPaymentList(applicationId as string));
-    }, []);
+    }, [dispatch, paymentList, applicationId]);
 
     return (
         <section>
@@ -44,6 +44,7 @@ const TableDocument = () => {
                     <div className="table-wrapper__bottom__checks">
                     <Checkbox setIsChecked={setIsUserAgree} labelText="I agree with the payment schedule" isChecked={isUserAgree} />
                         <Button
+                            type='submit'
                             className="Button table-wrapper__bottom__BtnSend"
                              disabled={!isUserAgree}
                             onClick={() => {

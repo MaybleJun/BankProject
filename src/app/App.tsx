@@ -20,7 +20,7 @@ const App = () => (
                 <Route path="*" element={<NotFoundPageAsync />} />
                 <Route path="/" element={<HomePageAsync />} />
                 <Route path="/loan" element={<LoanPageAsync />} />
-                <Route path="/loan/:applicationId" element={<ScoringPageAsync />} />
+                <Route path="/loan/11" element={<ScoringPageAsync />} />
                 <Route path="/loan/:applicationId/document" element={<PaymentPage />} />
                 <Route path="/loan/:applicationId/document/sign" element={<DocumentSignPage />} />
                 <Route path="/loan/:applicationId/code" element={<CodePage />} /> 
