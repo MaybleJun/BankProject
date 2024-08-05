@@ -55,6 +55,10 @@ export function PrescoringForm({
         const isValid = await trigger();
         if (!isValid) return;
 
+        if (!data.middleName) {
+            data.middleName = null;
+        }
+
         setIsLoading(true);
         try {
             await dispatch(submitPrescoringForm(data));

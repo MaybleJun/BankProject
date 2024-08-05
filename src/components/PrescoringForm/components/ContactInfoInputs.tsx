@@ -72,7 +72,7 @@ export function ContactInfoInputs({ register, errors, dirtyFields }: ContactInfo
                 <Input
                     register={register('middleName', {
                         required: false,
-                        setValueAs: (value: string) => value?.trim(),
+                        setValueAs: (value: string) => value?.trim() || null,
                         pattern: {
                             value: NAME_REGEX,
                             message: formTexts.errors.lettersOnly,
