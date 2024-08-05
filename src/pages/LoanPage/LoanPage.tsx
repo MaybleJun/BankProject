@@ -144,6 +144,7 @@ const LoanPage = () => {
             </div>
 
             <PrescoringStatus loanFormRef={formSectionRef} />
+            
         </main>
     );
 };

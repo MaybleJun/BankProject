@@ -12,80 +12,69 @@ interface CodeInputProps {
 
 export const CodeInput: FC<CodeInputProps> = ({ numberOfInputs }) => {
     const dispatch = useAppDispatch();
-    const isProcessing = useSelectorTyped((state: AppState) => state.loan.isProcessing);
+    const isSending = useSelectorTyped((state: AppState) => state.loan.isProcessing);
     const error = useSelectorTyped((state: AppState) => state.loan.errorMessage);
-    const { applicationId } = useParams<{ applicationId: string }>();
-
-    // Refs для каждого ввода и состояние для буквенных значений в каждом вводе
-    const inputRefs = Array.from({ length: numberOfInputs }, () => createRef<HTMLInputElement>());
-    const [letters, setLetters] = useState<string[]>(Array.from({ length: numberOfInputs }, () => ""));
+    const { applicationId } = useParams();
+    const [inputRefsArray] = useState<RefObject<HTMLInputElement>[]>(() => Array.from({ length: numberOfInputs }, () => createRef()));
+    const [letters, setLetters] = useState<string[]>(() => Array.from({ length: numberOfInputs }, () => ""));
     const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-    // Обработка отправки кода при вводе последнего символа
     useEffect(() => {
         if (letters[numberOfInputs - 1] !== "") {
-            const code = parseInt(letters.join(""));
+            console.log(parseInt(letters.join("")));
             setTimeout(() => {
-                dispatch(confirmCode(applicationId, code.toString()));
+                dispatch(confirmCode(applicationId as string, letters.join("")));
             }, 500);
         }
-    }, [letters, dispatch, applicationId, numberOfInputs]);
+    }, [letters]);
 
-    // Обработчик нажатия клавиш для переключения между полями ввода
-    const handleKeyPress = (key: string) => {
-        setCurrentIndex((prevIndex) => {
-            let nextIndex: number;
-            if (key === "Backspace") {
-                nextIndex = prevIndex === 0 ? 0 : prevIndex - 1;
-            } else {
-                nextIndex = prevIndex < numberOfInputs - 1 ? prevIndex + 1 : numberOfInputs - 1;
-            }
-            const nextInput = inputRefs[nextIndex]?.current;
-            nextInput?.focus();
-            nextInput?.select();
-            return nextIndex;
-        });
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+        const { key } = e;
+        if (key === "Backspace") {
+            setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
+        } else {
+            setCurrentIndex((prevIndex) => (prevIndex < numberOfInputs - 1 ? prevIndex + 1 : numberOfInputs - 1));
+        }
     };
 
-    // Эффект для установки фокуса на первое поле ввода и добавления слушателя клавиш
-    useEffect(() => {
-        if (inputRefs[0]?.current) {
-            inputRefs[0].current.focus();
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+        const { value } = e.target;
+        if (value.length > 1) return; // Ignore inputs longer than 1 character
+        setLetters((letters) => letters.map((letter, letterIndex) => (letterIndex === index ? value : letter)));
+        if (value.length === 1 && index < numberOfInputs - 1) {
+            inputRefsArray[index + 1]?.current?.focus();
         }
-        const keyUpHandler = ({ key }: KeyboardEvent) => handleKeyPress(key);
-        window.addEventListener("keyup", keyUpHandler);
-        return () => {
-            window.removeEventListener("keyup", keyUpHandler);
-        };
-    }, [inputRefs]);
+    };
+
+    useEffect(() => {
+        if (inputRefsArray?.[0]?.current) {
+            inputRefsArray[0].current.focus();
+        }
+    }, []);
 
     return (
         <div className="CodeInput">
             <h3>Please enter confirmation code</h3>
             <div className="CodeInput__wrapper">
-                {inputRefs.map((ref, index) => (
+                {inputRefsArray.map((ref, index) => (
                     <input
-                        key={`input-${index}`}
                         className="CodeInput__input"
                         ref={ref}
                         type="tel"
-                        placeholder="0"
+                        placeholder="O"
+                        key={`box${index}-1`}
+                        onChange={(e) => handleInput(e, index)}
+                        onKeyDown={(e) => handleKeyDown(e, index)}
+                        onClick={() => {
+                            inputRefsArray?.[currentIndex]?.current?.focus();
+                            inputRefsArray?.[currentIndex]?.current?.select();
+                        }}
                         value={letters[index]}
                         maxLength={1}
-                        onChange={(e) => {
-                            const { value } = e.target;
-                            setLetters((prevLetters) =>
-                                prevLetters.map((letter, letterIndex) => (letterIndex === index ? value : letter))
-                            );
-                        }}
-                        onClick={() => {
-                            inputRefs[currentIndex]?.current?.focus();
-                            inputRefs[currentIndex]?.current?.select();
-                        }}
                     />
                 ))}
             </div>
-            {isProcessing && (
+            {isSending && (
                 <div>
                     <Loader />
                 </div>
@@ -94,4 +83,3 @@ export const CodeInput: FC<CodeInputProps> = ({ numberOfInputs }) => {
         </div>
     );
 };
-
