@@ -8,10 +8,12 @@ const TabContent: React.FC<TabContentProps> = ({ children, className }) => (
 );
 
 const Tabs: React.FC<TabContainerProps> = ({ children, links, initialActiveIndex = 0 }) => {
-    const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+    const [activeIndex, setActiveIndex] = useState<number>(initialActiveIndex);
 
-    const tabContents = React.Children.map(children, (child) => (React.isValidElement(child)
-    && child.type === TabContent ? child : null)).filter(Boolean);
+    const tabContents = React.Children.toArray(children)
+        .filter(child => React.isValidElement(child) && child.type === TabContent) as React.ReactElement<TabContentProps>[];
+
+    const validIndex = Math.min(activeIndex, tabContents.length - 1);
 
     const onTabClick = (index: number) => {
         setActiveIndex(index);
@@ -33,7 +35,7 @@ const Tabs: React.FC<TabContainerProps> = ({ children, links, initialActiveIndex
                     ))}
                 </ul>
             </nav>
-            {tabContents[activeIndex]}
+            {tabContents.length > 0 ? tabContents[validIndex] : null}
         </section>
     );
 };
