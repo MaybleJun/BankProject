@@ -13,14 +13,12 @@ describe('Компонент Accordion', () => {
   it('отображает заголовок, если он предоставлен', () => {
     render(<Accordion contentList={mockContentList} title="Accordion Title" />);
 
-    // Проверяем, что заголовок отображается
     expect(screen.getByText('Accordion Title')).toBeInTheDocument();
   });
 
   it('правильно отображает записи аккордеона', () => {
     render(<Accordion contentList={mockContentList} />);
 
-    // Проверяем, что все вопросы отображаются
     mockContentList.forEach((item) => {
       expect(screen.getByText(item.query)).toBeInTheDocument();
     });
@@ -29,12 +27,10 @@ describe('Компонент Accordion', () => {
   it('показывает ответ при клике на запись аккордеона', () => {
     render(<Accordion contentList={mockContentList} />);
 
-    // Изначально ответы скрыты
     mockContentList.forEach((item) => {
       expect(screen.queryByText(item.response)).not.toBeInTheDocument();
     });
 
-    // Симулируем клики по кнопкам аккордеона
     mockContentList.forEach((item) => {
       fireEvent.click(screen.getByText(item.query));
       expect(screen.getByText(item.response)).toBeInTheDocument();

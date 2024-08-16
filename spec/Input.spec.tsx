@@ -13,7 +13,6 @@ describe('Input component', () => {
       type: 'text',
     };
   
-    // Тест на рендер компонента с меткой (label)
     it('Отображает инпут с меткой', () => {
       render(<Input {...defaultProps} />);
   
@@ -24,7 +23,6 @@ describe('Input component', () => {
       expect(inputElement).toBeInTheDocument();
     });
   
-    // Тест на отображение сообщения об ошибке, если передана ошибка
     it('Отображает сообщение об ошибке при наличии ошибки', () => {
       const errorProps: InputProps = {
         ...defaultProps,
@@ -37,9 +35,6 @@ describe('Input component', () => {
       expect(errorMessage).toBeInTheDocument();
     });
   
-    // Убран тест на отображение иконки проверки
-  
-    // Тест на отсутствие иконок, если поле не изменено и нет ошибки
     it('Не отображает иконки, если поле не изменено и нет ошибки', () => {
       render(<Input {...defaultProps} />);
   
@@ -50,7 +45,6 @@ describe('Input component', () => {
       expect(checkIcon).not.toBeInTheDocument();
     });
   
-    // Тест на вызов register.onChange при изменении значения инпута
     it('Вызывает register.onChange при изменении значения инпута', () => {
       render(<Input {...defaultProps} />);
   
