@@ -8,7 +8,7 @@ module.exports = {
     transformIgnorePatterns: ['node_modules'],
     moduleNameMapper: {
       '\\.(css|scss)$': 'identity-obj-proxy',
-      '\\.(png|jpg|jpeg|gif|webp|svg|pdf)$': '<rootDir>/__mocks__/fileMock.js',
+      '\\.(png|jpg|jpeg|gif|webp|svg|pdf)$': '<rootDir>/spec/__mocks__/fileMock.js',
     },
   };
   
