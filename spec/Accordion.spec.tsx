@@ -9,15 +9,15 @@ const mockContentList = [
   { query: 'Question 2', response: 'Answer 2' },
 ];
 
-describe('Accordion Component', () => {
-  test('renders title if provided', () => {
+describe('Компонент Accordion', () => {
+  it('отображает заголовок, если он предоставлен', () => {
     render(<Accordion contentList={mockContentList} title="Accordion Title" />);
 
     // Проверяем, что заголовок отображается
     expect(screen.getByText('Accordion Title')).toBeInTheDocument();
   });
 
-  test('renders accordion entries correctly', () => {
+  it('правильно отображает записи аккордеона', () => {
     render(<Accordion contentList={mockContentList} />);
 
     // Проверяем, что все вопросы отображаются
@@ -26,7 +26,7 @@ describe('Accordion Component', () => {
     });
   });
 
-  test('shows response when accordion entry is clicked', () => {
+  it('показывает ответ при клике на запись аккордеона', () => {
     render(<Accordion contentList={mockContentList} />);
 
     // Изначально ответы скрыты
@@ -35,13 +35,13 @@ describe('Accordion Component', () => {
     });
 
     // Симулируем клики по кнопкам аккордеона
-    mockContentList.forEach((item, index) => {
+    mockContentList.forEach((item) => {
       fireEvent.click(screen.getByText(item.query));
       expect(screen.getByText(item.response)).toBeInTheDocument();
     });
   });
 
-  test('toggles response visibility on button click', () => {
+  it('переключает видимость ответа при клике на кнопку', () => {
     render(<Accordion contentList={mockContentList} />);
 
     // Изначально ответы скрыты
