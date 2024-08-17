@@ -39,7 +39,10 @@ export function Select({
                 </Label>
             )}
             <div>
-                <div className={`Select__fieldContainer${error ? " Select__fieldContainer--error" : ""}`}>
+                <div
+                    className={`Select__fieldContainer${error ? " Select__fieldContainer--error" : ""}`}
+                    data-testid="select-field-container"
+                >
                     <select className="Select__field" id={id} required={required} {...register} {...props}>
                         {optionsList}
                     </select>
